@@ -14,7 +14,7 @@ This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 
 
 ## Wireframes
-
+![wireframe](/assets/wireframe.png)
 
 
 ## Technology 
