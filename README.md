@@ -2,7 +2,7 @@
 
 Squirtle-Aga follows Bushnell's Law - easy to learn, hard to master. The player presses left or right to dodge attacks from the Beedrills, Butterfrees and Dragonites. 
 
-This game is inspired by Galaga
+This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 
 ## Functionality
 
