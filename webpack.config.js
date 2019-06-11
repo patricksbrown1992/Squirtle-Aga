@@ -1,9 +1,11 @@
-const path = require('path');
+const path = require("path");
+
 module.exports = {
     context: __dirname,
-    entry: './squirtle-aga.js',
+    entry: "./lib/main.js",
     output: {
-        path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "lib"),
+        filename: "bundle.js"
     },
+    devtool: "source-map"
 };
