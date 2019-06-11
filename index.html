@@ -18,8 +18,13 @@
             margin: 0 auto;
         }
     </style>
-    <script src="js/SquirtleBullet.js"></script>
+    <script src="js/squirtleBullet.js"></script>
     <script src="assets/squirtle.png"></script>
+    <script src="js/enemyBullet.js"></script>
+    <script src="js/Instructions.js"></script>
+    <script src="js/winningModal.js"></script>
+    <script src="js/losingModal.js"></script>
+    <script src="js/score.js"></script>
 </head>
 
 <body>
@@ -27,6 +32,7 @@
     <canvas id="myCanvas" width="480" height="700"></canvas>
 
     <script>
+        // need to realign these with bigger canvas
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
         var squirtleWidth = 24;

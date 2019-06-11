@@ -1,0 +1,28 @@
+{
+  "name": "Squirtle-aga",
+  "version": "1.0.0",
+  "description": "Squirtle-Aga follows Bushnell's Law - easy to learn, hard to master. The player presses left or right to dodge attacks from the Beedrills, Butterfrees and Dragonites.",
+  "main": "squirtle-aga.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricksbrown1992/Squirtle-Aga.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patricksbrown1992/Squirtle-Aga/issues"
+  },
+  "homepage": "https://github.com/patricksbrown1992/Squirtle-Aga#readme",
+  "dependencies": {
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
