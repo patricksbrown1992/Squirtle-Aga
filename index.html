@@ -12,16 +12,19 @@
 
         canvas {
             background: #eee;
+            /* change to pokemon battle background */
+        
             display: block;
             margin: 0 auto;
         }
     </style>
     <script src="js/SquirtleBullet.js"></script>
+    <script src="assets/squirtle.png"></script>
 </head>
 
 <body>
 
-    <canvas id="myCanvas" width="320" height="480"></canvas>
+    <canvas id="myCanvas" width="480" height="700"></canvas>
 
     <script>
         var canvas = document.getElementById("myCanvas");
@@ -34,13 +37,14 @@
         var dragonitePadding = 15;
         var dragoniteRowCount = 1;
         var dragoniteColumnCount = 4;
+        var dragoniteOffsetLeft = 95;
         var butterfreeWidth = 21;
         var butterfreeHeight = 17;
         var butterfreePadding = 5;
         var butterfreeRowCount = 2;
         var butterfreeColumnCount = 8;
-        var butterfreeOffsetTop = 30;
-        var butterfreeOffsetLeft = 60;
+        var butterfreeOffsetTop = 50;
+        var butterfreeOffsetLeft = 57;
         var beedrillOffsetLeft = 60;
         var beedrillOffsetTop = 100
         var beedrillHeight = 22;
@@ -72,25 +76,15 @@
             }
         }
 
-        
+        var dragonites = [];
+        for (var c = 0; c < dragoniteColumnCount; c++) {
+            dragonites[c] = [];
+            for (var r = 0; r < dragoniteRowCount; r++) {
+                dragonites[c][r] = { x: 0, y: 0 };
+            }
+        }
 
-
-        // var dragonites = [];
-        // for (var c = 0; c < dragoniteColumnCount; c++) {
-        //     dragonites[c] = [];
-        //     for (var r = 0; r < dragoniteRowCount; r++) {
-        //         dragonites[c][r] = { x: 0, y: 0 }
-        //     }
-        // }
-
-        // var beedrills = [];
-        // for (var c = 0; c < beedrillColumnCount; c++) {
-        //     beedrills[c] = [];
-        //     for (var r = 0; r < beedrillRowCount; r++) {
-        //         beedrills[c][r] = { x: 0, y: 0 }
-        //     }
-        // }
-        
+    
        
         function addBullet(){
             // debugger
@@ -168,6 +162,22 @@
             }
         }
 
+        function drawDragonites() {
+            for (var c = 0; c < dragoniteColumnCount; c++) {
+                for (var r = 0; r < dragoniteRowCount; r++) {
+                    var dragoniteX = (c * (dragoniteWidth + dragonitePadding)) + dragoniteOffsetLeft;
+                    var dragoniteY = (r * (dragoniteHeight + dragonitePadding));
+                    dragonites[c][r].x = dragoniteX;
+                    dragonites[c][r].y = dragoniteY;
+                    ctx.beginPath();
+                    ctx.rect(dragoniteX, dragoniteY, dragoniteWidth, dragoniteHeight);
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        }
+
         function drawSquirtle(){
             ctx.beginPath();
             ctx.rect(squirtleX, canvas.height - squirtleHeight, squirtleWidth, squirtleHeight);
@@ -182,6 +192,7 @@
             drawSquirtle()
             drawButterfrees()
             drawBeedrills()
+            drawDragonites()
 
             if(rightPressed && squirtleX < canvas.width-squirtleWidth){
                 squirtleX += 5;
