@@ -26,7 +26,21 @@
     width: 15%;
     display: flex;
     flex-direction: column;
+}
+.score-nav h3 a{
+    color: black;
+    cursor: pointer;
 
+}
+
+.linkedin-logo{
+    width: 10%;
+    height: 90%;
+}
+
+.github-logo{
+    width: 10%;
+    height: 90%;
 }
 
 .canvas {
