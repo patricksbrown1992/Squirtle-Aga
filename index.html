@@ -15,11 +15,12 @@
             /* change to pokemon battle background */
         
             display: block;
+           
             margin: 0 auto;
         }
     </style>
     <script src="js/squirtleBullet.js"></script>
-    <script src="assets/squirtle.png"></script>
+  
     <script src="js/enemyBullet.js"></script>
     <script src="js/Instructions.js"></script>
     <script src="js/winningModal.js"></script>
@@ -31,6 +32,10 @@
 
     <canvas id="myCanvas" width="480" height="700"></canvas>
 
+    <img src="./assets/squirtle.png"></img>
+    <img src="./assets/butterfree.png"></img>
+    <img src="./assets/beedrill.png"></img>
+    <img src="./assets/dragonite.png"></img>
     <script>
         // need to realign these with bigger canvas
         var canvas = document.getElementById("myCanvas");
@@ -73,6 +78,7 @@
                 butterfrees[c][r] = { x: 0, y: 0 };
             }
         }
+
 
         var beedrills = [];
         for (var c = 0; c < beedrillColumnCount; c++) {
