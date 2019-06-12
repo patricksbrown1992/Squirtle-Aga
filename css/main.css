@@ -1,0 +1,39 @@
+.header {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header h1{
+    font-weight: bold;
+    font-size: 24px;
+    color: black;
+}
+
+.squirtle-aga-body {
+    width: 100%;
+    height: 75%;
+    display: flex;
+}
+
+.instructions-nav{
+    background-color: blue;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.canvas {
+    width: 70%
+}
+
+.score-nav{
+    background-color: green;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
