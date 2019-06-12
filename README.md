@@ -30,6 +30,13 @@ This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 * **enemies.js** - handles the Butterfree, Beedrill and Dragonite elements of the game
 
 
+##Timeline
+Day 1 - Basic structure
+Day 2 - CSS
+Day 3 - Shooting functionality
+Day 4 - Lives, Score and Game over Modal
+Day 5 - Sprites and backgrounds
+
 ## MVPs
 * Pokemon Sprites and instructions
 * Player can start, pause, restart and reset game
