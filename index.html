@@ -129,9 +129,23 @@
             
             
                 function addBullet(){
-                    // debugger
-                    var bullet = new SquirtleBullet(squirtleX, 480)
-                    bullets.push(bullet);
+                   
+                    var newBullet = new SquirtleBullet(squirtleX, 450)
+                    bullets.push(newBullet)
+                }
+
+                function drawBullet(bullets){
+                    debugger
+                    for(let i = 0; i < bullets.length; i++){
+                        let bullet = bullets[i]
+                        if (bullet.x > 0 && bullet.x + 20 < 480 && bullet.y > 0 && bullet.y + 30 < 500){
+                            ctx.beginPath();
+                            ctx.rect(bullet.x, bullet.y, 15, 30);
+                            ctx.fillStyle = "black";
+                            ctx.fill();
+                            ctx.closePath();
+                        }
+                    }
                 }
     
                 
@@ -167,6 +181,7 @@
                 }
     
                 function shoot(){
+                
                     if(spacePressed){
                         addBullet();
                     }
@@ -235,6 +250,7 @@
                     drawButterfrees()
                     drawBeedrills()
                     drawDragonites()
+                    
     
                     if(rightPressed && squirtleX < canvas.width-squirtleWidth){
                         squirtleX += 5;
@@ -243,11 +259,13 @@
                         squirtleX -= 5;
                     } 
                     else if (spacePressed){
+                        shoot();
                         // squirtleX -= 5;
                     }
                 }
                 setInterval(draw, 10);
-                setInterval(shoot, 25)
+                // setInterval(drawBullet(bullets), 1000);
+               
                 
             </script>
         </div>

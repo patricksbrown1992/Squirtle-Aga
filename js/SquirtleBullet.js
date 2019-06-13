@@ -4,7 +4,8 @@ class SquirtleBullet{
         this.y = y;
         this.width = 12;
         this.height = 25;
-        this.speed = 25;
-        this.color = "#0095DD";
+        this.dy = y -= 25;
+        // this.speed = 25;
+        this.color = "green";
     }
 }
