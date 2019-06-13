@@ -126,12 +126,23 @@
                     }
                 }
     
-            
+                function collision(start, end){
+                    if ((start.y + start.height) < end.y ||
+                    start.y > (end.y + end.height) ||
+                    (start.x + start.width) < end.x ||
+                    start.x > (end.x + end.width)){
+                        return false;
+                    } else {
+                        return true;
+                    }
+                    
+                }
             
                 function addBullet(){
-                   
-                    var newBullet = new SquirtleBullet(squirtleX, 450)
-                    bullets.push(newBullet)
+                   if(spacePressed){
+                       var newBullet = new SquirtleBullet(squirtleX, 450, 2)
+                       bullets.push(newBullet)
+                    }
                 }
 
                 function drawBullet(bullets){
@@ -164,6 +175,13 @@
                     else if (e.key =' '){
                         debugger
                         spacePressed = true;
+                    }
+                }
+
+                function updateBullets(bullets){
+                    for(let i = 0; i < bullets.length; i++){
+                        bullet = bullets[i];
+                        bullet.y -= bullet.speed * bullet.dy;
                     }
                 }
     
@@ -250,6 +268,7 @@
                     drawButterfrees()
                     drawBeedrills()
                     drawDragonites()
+                    drawBullet(bullets)
                     
     
                     if(rightPressed && squirtleX < canvas.width-squirtleWidth){
@@ -263,8 +282,8 @@
                         // squirtleX -= 5;
                     }
                 }
-                setInterval(draw, 10);
-                // setInterval(drawBullet(bullets), 1000);
+                setInterval(draw, 20);
+                
                
                 
             </script>
