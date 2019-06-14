@@ -5,6 +5,8 @@ class Game{
         this.audio.loop = true;
         this.audio.volume = .25;
         this.auto.load();
+        var lives = 3;
+        
     }
 
 }
