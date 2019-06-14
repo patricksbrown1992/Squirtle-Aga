@@ -67,4 +67,20 @@ class Squirtle{
         ctx.fill();
         ctx.closePath()
     }
+
+    draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (rightPressed && squirtleX < canvas.width - squirtleWidth) {
+            squirtleX += 5;
+        } else if (leftPressed && squirtleX > 0) {
+            squirtleX -= 5;
+        } else if (spacePressed) {
+            shoot();
+            // squirtleX -= 5;
+        }
+    }
+    setInterval(){
+        setInterval(draw, 20);
+    }
 }

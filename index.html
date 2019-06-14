@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./lib/bundle.js"></script>
+    <script src="./js/score.js"></script>
     <title>Squirtle-Aga</title>
     <style>
         * {
@@ -62,14 +63,6 @@
                
                 // var score = new Score();
     
-    
-              
-    
-    
-               
-    
-                
-    
                 function collision(start, end){
                     if ((start.y + start.height) < end.y ||
                     start.y > (end.y + end.height) ||
@@ -101,37 +94,8 @@
                             ctx.closePath();
                         }
                     }
-                }
-    
-    
-    
-    
-                
-    
-                function draw(){
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    drawSquirtle()
-                    drawButterfrees()
-                    drawBeedrills()
-                    drawDragonites()
-             
-                    
-    
-                    if(rightPressed && squirtleX < canvas.width-squirtleWidth){
-                        squirtleX += 5;
-                    } 
-                    else if(leftPressed && squirtleX > 0){
-                        squirtleX -= 5;
-                    } 
-                    else if (spacePressed){
-                        shoot();
-                        // squirtleX -= 5;
-                    }
-                }
-                setInterval(draw, 20);
-                
-               
-                
+                };
+
             </script>
         </div>
     
