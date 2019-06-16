@@ -1,15 +1,21 @@
 class Squirtle{
-    constructor(x, lives){
-        this.x = x;
+    constructor(canvas, ctx, squirtlePhoto){
         this.squirtleWidth = 24;
+        this.squirtlePhoto = squirtlePhoto;
         this.squirtleHeight = 31;
-        this.squirtleX = (canvas.width - squirtleWidth) / 2;
+        this.canvas = canvas;
+        this.squirtleX = (this.canvas.width - this.squirtleWidth) / 2;
         this.rightPressed = false;
         this.leftPressed = false;
+        this.ctx = ctx;
         this.spacePressed = false;
         this.bullets = [];
-        document.addEventListener("keydown", keyDownHandler, false);
-        document.addEventListener("keyup", keyUpHandler, false);
+        this.squirtleSpeed = 3
+        // document.addEventListener("keydown", keyDownHandler, false);
+        // document.addEventListener("keyup", keyUpHandler, false);
+        this.keyDownHandler = this.keyDownHandler.bind(this);
+        this.keyUpHandler = this.keyUpHandler.bind(this);
+        this.drawSquirtle = this.drawSquirtle.bind(this);
     }
 
 
@@ -24,18 +30,18 @@ class Squirtle{
             // debugger
             leftPressed = true;
         }
-        else if (e.keyCode === 32) {
-            // debugger
-            spacePressed = true;
-        }
+        // else if (e.keyCode === 32) {
+        //     // debugger
+        //     spacePressed = true;
+        // }
     }
 
-    updateBullets(bullets) {
-        for (let i = 0; i < bullets.length; i++) {
-            bullet = bullets[i];
-            bullet.y -= bullet.speed * bullet.dy;
-        }
-    }
+    // updateBullets(bullets) {
+    //     for (let i = 0; i < bullets.length; i++) {
+    //         bullet = bullets[i];
+    //         bullet.y -= bullet.speed * bullet.dy;
+    //     }
+    // }
 
     keyUpHandler(e) {
         if (e.keyCode === 39) {
@@ -53,35 +59,27 @@ class Squirtle{
         }
     }
 
-    shoot() {
-        if (spacePressed) {
-            addBullet();
-        }
-    }
+    // shoot() {
+    //     if (spacePressed) {
+    //         addBullet();
+    //     }
+    // }
 
     drawSquirtle() {
-        ctx.beginPath();
-        ctx.rect(squirtleX, canvas.height - squirtleHeight, squirtleWidth, squirtleHeight);
-
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath()
+        this.ctx.drawSquirtle(this.squirtlePhoto, this.squirtleX, this.canvas-height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth)
     }
 
     draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawSquirtle()
 
-        if (rightPressed && squirtleX < canvas.width - squirtleWidth) {
-            squirtleX += 5;
+        if (this.rightPressed && this.squirtleX < this.canvas.width - this.squirtleWidth) {
+            squirtleX += this.squirtleSpeed;
         } else if (leftPressed && squirtleX > 0) {
-            squirtleX -= 5;
-        } else if (spacePressed) {
-            shoot();
-            // squirtleX -= 5;
-        }
+            squirtleX -= this.squirtleSpeed;
+        // } else if (spacePressed) {
+        //     shoot();
+        //     // squirtleX -= 5;
+        // }
     }
-    setInterval(){
-        setInterval(draw, 20);
-    }
+    
 }
