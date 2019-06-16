@@ -1,5 +1,5 @@
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, Dragonite, dragonitePhoto, ){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, Dragonite, dragonitePhoto, SquirtleBulletHandler ){
 
         this.canvas = canvas;
         this.ctx = ctx;
@@ -11,14 +11,12 @@ class Game{
         this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
         this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
         this.Dragonite = new Dragonite(canvas, ctx, this.dragonitePhoto);
-        this.audio = new Audio("assets/pokemon-trainer-battle-music.mp3");
-        this.audio.loop = true;
-        this.audio.volume = .25;
-        this.auto.load();
+        this.SquirtleBulletHandler = new SquirtleBulletHandler(ctx, canvas, this.Squirtle);
         this.lives = 3;
 
-        document.addEventListener("keydown", keyDownHandler, false);
-        document.addEventListener("keyup", keyUpHandler, false);
+        document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
+        document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
+        document.addEventListener("keydown", this.SquirtleBulletHandler.keyDownHandler, false);
     }
 
 }

@@ -12,9 +12,9 @@ class Beedrill{
         this.beedrillRowCount = 2;
         this.beedrillColumnCount = 8;
         this.beedrills = [];
-        for (var c = 0; c < beedrillColumnCount; c++) {
+        for (var c = 0; c < this.beedrillColumnCount; c++) {
             this.beedrills[c] = [];
-            for (var r = 0; r < beedrillRowCount; r++) {
+            for (var r = 0; r < this.beedrillRowCount; r++) {
                 this.beedrills[c][r] = { x: 0, y: 0 };
             }
         }
@@ -22,14 +22,14 @@ class Beedrill{
   
 
     drawBeedrills() {
-        for (var c = 0; c < butterfreeColumnCount; c++) {
-            for (var r = 0; r < butterfreeRowCount; r++) {
-                var beedrillX = (c * (beedrillWidth + beedrillPadding)) + beedrillOffsetLeft;
-                var beedrillY = (r * (beedrillHeight + beedrillPadding)) + beedrillOffsetTop;
+        for (var c = 0; c < this.butterfreeColumnCount; c++) {
+            for (var r = 0; r < this.butterfreeRowCount; r++) {
+                var beedrillX = (c * (this.beedrillWidth + this.beedrillPadding)) + this.beedrillOffsetLeft;
+                var beedrillY = (r * (this.beedrillHeight + this.beedrillPadding)) + this.beedrillOffsetTop;
                 beedrills[c][r].x = beedrillX;
                 beedrills[c][r].y = beedrillY;
                 ctx.beginPath();
-                ctx.rect(beedrillX, beedrillY, beedrillWidth, beedrillHeight);
+                ctx.rect(beedrillX, beedrillY, this.beedrillWidth, this.beedrillHeight);
                 ctx.fillStyle = "green";
                 ctx.fill();
                 ctx.closePath();

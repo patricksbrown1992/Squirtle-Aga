@@ -11,8 +11,6 @@ class Squirtle{
         this.spacePressed = false;
         this.bullets = [];
         this.squirtleSpeed = 3
-        // document.addEventListener("keydown", keyDownHandler, false);
-        // document.addEventListener("keyup", keyUpHandler, false);
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.keyUpHandler = this.keyUpHandler.bind(this);
         this.drawSquirtle = this.drawSquirtle.bind(this);

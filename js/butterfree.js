@@ -12,9 +12,9 @@ class Butterfree{
         this.butterfreeColumnCount = 8;
         this.butterfreeOffsetTop = 50;
         this.butterfreeOffsetLeft = 138;
-        for (var c = 0; c < butterfreeColumnCount; c++) {
+        for (var c = 0; c < this.butterfreeColumnCount; c++) {
             this.butterfrees[c] = [];
-            for (var r = 0; r < butterfreeRowCount; r++) {
+            for (var r = 0; r < this.butterfreeRowCount; r++) {
                 this.butterfrees[c][r] = { x: 0, y: 0 };
             }
         }
@@ -24,14 +24,14 @@ class Butterfree{
 
     drawButterfrees() {
         
-        for (var c = 0; c < butterfreeColumnCount; c++) {
-            for (var r = 0; r < beedrillRowCount; r++) {
-                var butterfreeX = (c * (butterfreeWidth + butterfreePadding)) + butterfreeOffsetLeft;
-                var butterfreeY = (r * (butterfreeHeight + butterfreePadding)) + butterfreeOffsetTop;
+        for (var c = 0; c < this.butterfreeColumnCount; c++) {
+            for (var r = 0; r < this.beedrillRowCount; r++) {
+                var butterfreeX = (c * (this.butterfreeWidth + this.butterfreePadding)) + this.butterfreeOffsetLeft;
+                var butterfreeY = (r * (this.butterfreeHeight + this.butterfreePadding)) + this.butterfreeOffsetTop;
                 butterfrees[c][r].x = butterfreeX;
                 butterfrees[c][r].y = butterfreeY;
                 ctx.beginPath();
-                ctx.rect(butterfreeX, butterfreeY, butterfreeWidth, butterfreeHeight);
+                ctx.rect(butterfreeX, butterfreeY, this.butterfreeWidth, this.butterfreeHeight);
                 ctx.fillStyle = "#0095DD";
                 ctx.fill();
                 ctx.closePath();

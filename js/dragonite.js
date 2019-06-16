@@ -11,9 +11,9 @@ class Dragonite{
         this.dragoniteColumnCount = 4;
         this.dragoniteOffsetLeft = 170;
         this.dragonites = [];
-        for (var c = 0; c < dragoniteColumnCount; c++) {
+        for (var c = 0; c < this.dragoniteColumnCount; c++) {
             this.dragonites[c] = [];
-            for (var r = 0; r < dragoniteRowCount; r++) {
+            for (var r = 0; r < this.dragoniteRowCount; r++) {
                 this.dragonites[c][r] = { x: 0, y: 0 };
             }
         }
@@ -21,14 +21,14 @@ class Dragonite{
     
 
     drawDragonites() {
-        for (var c = 0; c < dragoniteColumnCount; c++) {
-            for (var r = 0; r < dragoniteRowCount; r++) {
-                var dragoniteX = (c * (dragoniteWidth + dragonitePadding)) + dragoniteOffsetLeft;
-                var dragoniteY = (r * (dragoniteHeight + dragonitePadding));
+        for (var c = 0; c < this.dragoniteColumnCount; c++) {
+            for (var r = 0; r < this.dragoniteRowCount; r++) {
+                var dragoniteX = (c * (this.dragoniteWidth + this.dragonitePadding)) + this.dragoniteOffsetLeft;
+                var dragoniteY = (r * (this.dragoniteHeight + this.dragonitePadding));
                 dragonites[c][r].x = dragoniteX;
                 dragonites[c][r].y = dragoniteY;
                 ctx.beginPath();
-                ctx.rect(dragoniteX, dragoniteY, dragoniteWidth, dragoniteHeight);
+                ctx.rect(dragoniteX, dragoniteY, this.dragoniteWidth, this.dragoniteHeight);
                 ctx.fillStyle = "red";
                 ctx.fill();
                 ctx.closePath();

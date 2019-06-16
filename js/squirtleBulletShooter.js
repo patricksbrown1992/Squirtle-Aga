@@ -20,8 +20,8 @@ class SquirtleBulletShooter{
     collisionDetection(){
         this.bullets.forEach((bullet) => {
             let bulletX = Math.floor(bullet.x);
-            let bulletY = bullet.y
-            if (bulletX > this.Squirtle.squirtleX && ){
+         
+            if (bulletX > this.Squirtle.squirtleX ){
                 this.enemy.status -= 1;
                 sBulletHealth.health = 0;
             }
