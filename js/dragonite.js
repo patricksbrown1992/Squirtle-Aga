@@ -1,18 +1,16 @@
 class Dragonite{
-    constructor(x, y, health){
-        this.x = x;
-        this.y = y;
-        this.health = health;
+    constructor(canvas, ctx){
+        
+        this.health = 2;
         this.height = 31;
         this.width = 24;
+        this.canvas = canvas;
+        this.ctx = ctx;
         this.dragonitePadding = 40;
         this.dragoniteRowCount = 1;
         this.dragoniteColumnCount = 4;
         this.dragoniteOffsetLeft = 170;
         this.dragonites = [];
-    }
-    
-    dragonite(){
         for (var c = 0; c < dragoniteColumnCount; c++) {
             dragonites[c] = [];
             for (var r = 0; r < dragoniteRowCount; r++) {
@@ -20,6 +18,7 @@ class Dragonite{
             }
         }
     }
+    
 
     drawDragonites() {
         for (var c = 0; c < dragoniteColumnCount; c++) {
@@ -37,3 +36,5 @@ class Dragonite{
         }
     }
 }
+
+export default Dragonite;

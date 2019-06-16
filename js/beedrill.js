@@ -1,19 +1,17 @@
 class Beedrill{
-    constructor(x, y, health){
-        this.x = x;
-        this.y = y;
-        this.health = health;
+    constructor(canvas, ctx){
+        
+        this.health = 1;
         this.height = 22;
         this.width = 20;
+        this.canvas = canvas;
+        this.ctx = ctx;
         this.beedrillPadding = 20;
         this.beedrillOffsetLeft = 140;
         this.beedrillOffsetTop = 100
         this.beedrillRowCount = 2;
         this.beedrillColumnCount = 8;
         this.beedrills = [];
-    }
-    
-    beedrills(){
         for (var c = 0; c < beedrillColumnCount; c++) {
             beedrills[c] = [];
             for (var r = 0; r < beedrillRowCount; r++) {
@@ -21,6 +19,7 @@ class Beedrill{
             }
         }
     }
+  
 
     drawBeedrills() {
         for (var c = 0; c < butterfreeColumnCount; c++) {
@@ -40,3 +39,5 @@ class Beedrill{
 
 
 }
+
+export default Beedrill;
