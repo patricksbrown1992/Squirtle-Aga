@@ -1,5 +1,6 @@
 class Butterfree{
-    constructor(canvas, ctx){
+    constructor(canvas, ctx, butterfreePhoto){
+        this.butterfreePhoto = butterfreePhoto;
         this.health = 1;
         this.height = 17;
         this.width = 21;
@@ -12,9 +13,9 @@ class Butterfree{
         this.butterfreeOffsetTop = 50;
         this.butterfreeOffsetLeft = 138;
         for (var c = 0; c < butterfreeColumnCount; c++) {
-            butterfrees[c] = [];
+            this.butterfrees[c] = [];
             for (var r = 0; r < butterfreeRowCount; r++) {
-                butterfrees[c][r] = { x: 0, y: 0 };
+                this.butterfrees[c][r] = { x: 0, y: 0 };
             }
         }
        

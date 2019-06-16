@@ -53,10 +53,10 @@ class Squirtle{
             // debugger
             leftPressed = false;
         }
-        else if (e.keyCode === 32) {
-            // debugger
-            spacePressed = false;
-        }
+        // else if (e.keyCode === 32) {
+        //     // debugger
+        //     spacePressed = false;
+        // }
     }
 
     // shoot() {
@@ -80,6 +80,9 @@ class Squirtle{
         //     shoot();
         //     // squirtleX -= 5;
         // }
+        }
     }
     
 }
+
+export default Squirtle;

@@ -60,42 +60,7 @@
                 // need to realign these with bigger canvas
                 var canvas = document.getElementById("myCanvas");
                 var ctx = canvas.getContext("2d");
-               
-                // var score = new Score();
-    
-                function collision(start, end){
-                    if ((start.y + start.height) < end.y ||
-                    start.y > (end.y + end.height) ||
-                    (start.x + start.width) < end.x ||
-                    start.x > (end.x + end.width)){
-                        return false;
-                    } else {
-                        return true;
-                    }
-                    
-                }
-            
-                function addBullet(){
-                   if(spacePressed){
-                       var newBullet = new SquirtleBullet(squirtleX, 450, 2)
-                       bullets.push(newBullet)
-                    }
-                }
-
-                function drawBullet(bullets){
-                    // debugger
-                    for(let i = 0; i < bullets.length; i++){
-                        let bullet = bullets[i]
-                        if (bullet.x > 0 && bullet.x + 20 < 480 && bullet.y > 0 && bullet.y + 30 < 500){
-                            ctx.beginPath();
-                            ctx.rect(bullet.x, bullet.y, 15, 30);
-                            ctx.fillStyle = "black";
-                            ctx.fill();
-                            ctx.closePath();
-                        }
-                    }
-                };
-
+          
             </script>
         </div>
     

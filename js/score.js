@@ -11,3 +11,4 @@ class Score{
         this.score += points;
     }
 }
+export default Score;

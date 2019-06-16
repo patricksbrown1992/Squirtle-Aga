@@ -1,6 +1,6 @@
 class Beedrill{
-    constructor(canvas, ctx){
-        
+    constructor(canvas, ctx, beedrillPhoto){
+        this.beedrillPhoto = beedrillPhoto;
         this.health = 1;
         this.height = 22;
         this.width = 20;
@@ -13,9 +13,9 @@ class Beedrill{
         this.beedrillColumnCount = 8;
         this.beedrills = [];
         for (var c = 0; c < beedrillColumnCount; c++) {
-            beedrills[c] = [];
+            this.beedrills[c] = [];
             for (var r = 0; r < beedrillRowCount; r++) {
-                beedrills[c][r] = { x: 0, y: 0 };
+                this.beedrills[c][r] = { x: 0, y: 0 };
             }
         }
     }
