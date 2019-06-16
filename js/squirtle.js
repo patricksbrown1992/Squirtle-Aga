@@ -70,6 +70,7 @@ class Squirtle{
 
     draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawSquirtle()
 
         if (rightPressed && squirtleX < canvas.width - squirtleWidth) {
             squirtleX += 5;
