@@ -28,19 +28,10 @@ class Squirtle{
             // debugger
             leftPressed = true;
         }
-        // else if (e.keyCode === 32) {
-        //     // debugger
-        //     spacePressed = true;
-        // }
+      
     }
 
-    // updateBullets(bullets) {
-    //     for (let i = 0; i < bullets.length; i++) {
-    //         bullet = bullets[i];
-    //         bullet.y -= bullet.speed * bullet.dy;
-    //     }
-    // }
-
+    
     keyUpHandler(e) {
         if (e.keyCode === 39) {
             // debugger
@@ -51,17 +42,10 @@ class Squirtle{
             // debugger
             leftPressed = false;
         }
-        // else if (e.keyCode === 32) {
-        //     // debugger
-        //     spacePressed = false;
-        // }
+       
     }
 
-    // shoot() {
-    //     if (spacePressed) {
-    //         addBullet();
-    //     }
-    // }
+    
 
     drawSquirtle() {
         this.ctx.drawSquirtle(this.squirtlePhoto, this.squirtleX, this.canvas-height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth)
@@ -74,10 +58,7 @@ class Squirtle{
             squirtleX += this.squirtleSpeed;
         } else if (leftPressed && squirtleX > 0) {
             squirtleX -= this.squirtleSpeed;
-        // } else if (spacePressed) {
-        //     shoot();
-        //     // squirtleX -= 5;
-        // }
+       
         }
     }
     
