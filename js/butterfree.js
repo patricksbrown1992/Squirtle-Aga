@@ -11,7 +11,7 @@ class Butterfree{
         this.butterfreeRowCount = 2;
         this.butterfreeColumnCount = 8;
         this.butterfreeOffsetTop = 50;
-        this.butterfreeOffsetLeft = 138;
+        this.butterfreeOffsetLeft = 85;
         this.drawButterfrees = this.drawButterfrees.bind(this);
         this.draw = this.draw.bind(this);
         for (var c = 0; c < this.butterfreeColumnCount; c++) {

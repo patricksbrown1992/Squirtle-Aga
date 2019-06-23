@@ -19,7 +19,6 @@ class Squirtle{
 
 
         keyDownHandler(e) {
-            debugger
         if (e.keyCode === 39) {
 
             this.rightPressed = true;
@@ -54,16 +53,16 @@ class Squirtle{
         this.ctx.fillStyle = "orange";
         this.ctx.fill();
         this.ctx.closePath();
-        // this.ctx.drawSquirtle(this.squirtleX, this.canvas-height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth)
     }
 
     draw() {
+        // debugger
         this.drawSquirtle();
         // this.ctx.fillText("GAME OVER", this.canvas.width / 2, 100);
         if (this.rightPressed && this.squirtleX < this.canvas.width - this.squirtleWidth) {
-            squirtleX += this.squirtleSpeed;
+            this.squirtleX += this.squirtleSpeed;
         } else if (this.leftPressed && this.squirtleX > 0) {
-            squirtleX -= this.squirtleSpeed;
+            this.squirtleX -= this.squirtleSpeed;
        
         }
     }

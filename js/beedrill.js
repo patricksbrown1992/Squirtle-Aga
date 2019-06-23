@@ -7,8 +7,8 @@ class Beedrill{
         this.canvas = canvas;
         this.ctx = ctx;
         this.beedrillPadding = 20;
-        this.beedrillOffsetLeft = 140;
-        this.beedrillOffsetTop = 100
+        this.beedrillOffsetLeft = 90;
+        this.beedrillOffsetTop = 120
         this.beedrillRowCount = 2;
         this.beedrillColumnCount = 8;
         this.drawBeedrills = this.drawBeedrills.bind(this);

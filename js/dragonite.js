@@ -11,7 +11,7 @@ class Dragonite{
         this.drawDragonites = this.drawDragonites.bind(this);
         this.draw = this.draw.bind(this);
         this.dragoniteColumnCount = 4;
-        this.dragoniteOffsetLeft = 170;
+        this.dragoniteOffsetLeft = 135;
         this.dragonites = [];
         for (var c = 0; c < this.dragoniteColumnCount; c++) {
             this.dragonites[c] = [];

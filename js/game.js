@@ -1,3 +1,5 @@
+import { request } from "http";
+
 class Game{
     constructor(canvas, ctx, Squirtle, Butterfree, BeeDrill, Dragonite
         // squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, Dragonite, dragonitePhoto, SquirtleBulletShooter ){
@@ -18,14 +20,23 @@ class Game{
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         this.lives = 3;
         this.begin = this.begin.bind(this);
-
-        // document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
-        // document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
+        this.life = this.life.bind(this);
+        document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
+        document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
         // document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
     }
 
     start(){
 
+    }
+    life(){
+        requestAnimationFrame(this.life)
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.Squirtle.draw();
+        this.Butterfree.draw();
+        this.BeeDrill.draw();
+        this.Dragonite.draw();
+      
     }
 
     begin(){
@@ -34,6 +45,7 @@ class Game{
         this.Butterfree.draw();
         this.BeeDrill.draw();
         this.Dragonite.draw();
+        this.life();
     }
 
     
