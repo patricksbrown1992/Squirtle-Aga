@@ -1,6 +1,6 @@
 class Dragonite{
-    constructor(canvas, ctx, dragonitePhoto){
-        this.dragonitePhoto = dragonitePhoto;
+    constructor(canvas, ctx){
+        // this.dragonitePhoto = dragonitePhoto;
         this.health = 2;
         this.height = 31;
         this.width = 24;
@@ -8,6 +8,8 @@ class Dragonite{
         this.ctx = ctx;
         this.dragonitePadding = 40;
         this.dragoniteRowCount = 1;
+        this.drawDragonites = this.drawDragonites.bind(this);
+        this.draw = this.draw.bind(this);
         this.dragoniteColumnCount = 4;
         this.dragoniteOffsetLeft = 170;
         this.dragonites = [];
@@ -23,17 +25,21 @@ class Dragonite{
     drawDragonites() {
         for (var c = 0; c < this.dragoniteColumnCount; c++) {
             for (var r = 0; r < this.dragoniteRowCount; r++) {
-                var dragoniteX = (c * (this.dragoniteWidth + this.dragonitePadding)) + this.dragoniteOffsetLeft;
-                var dragoniteY = (r * (this.dragoniteHeight + this.dragonitePadding));
-                dragonites[c][r].x = dragoniteX;
-                dragonites[c][r].y = dragoniteY;
+                var dragoniteX = (c * (this.width + this.dragonitePadding)) + this.dragoniteOffsetLeft;
+                var dragoniteY = (r * (this.height + this.dragonitePadding));
+                this.dragonites[c][r].x = dragoniteX;
+                this.dragonites[c][r].y = dragoniteY;
                 ctx.beginPath();
-                ctx.rect(dragoniteX, dragoniteY, this.dragoniteWidth, this.dragoniteHeight);
+                ctx.rect(dragoniteX, dragoniteY, this.width, this.height);
                 ctx.fillStyle = "red";
                 ctx.fill();
                 ctx.closePath();
             }
         }
+    }
+
+    draw(){
+        this.drawDragonites()
     }
 }
 

@@ -1,7 +1,7 @@
 class Squirtle{
-    constructor(canvas, ctx, squirtlePhoto){
+    constructor(canvas, ctx){
         this.squirtleWidth = 24;
-        this.squirtlePhoto = squirtlePhoto;
+        // this.squirtlePhoto = squirtlePhoto;
         this.squirtleHeight = 31;
         this.canvas = canvas;
         this.squirtleX = (this.canvas.width - this.squirtleWidth) / 2;
@@ -9,24 +9,24 @@ class Squirtle{
         this.leftPressed = false;
         this.ctx = ctx;
         this.spacePressed = false;
-        this.bullets = [];
+        // this.bullets = [];
         this.squirtleSpeed = 3
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.keyUpHandler = this.keyUpHandler.bind(this);
         this.drawSquirtle = this.drawSquirtle.bind(this);
+        this.draw = this.draw.bind(this);
     }
 
 
-
         keyDownHandler(e) {
-    // debugger
+            debugger
         if (e.keyCode === 39) {
-            // debugger
-            rightPressed = true;
+
+            this.rightPressed = true;
         }
         else if (e.keyCode === 37) {
-            // debugger
-            leftPressed = true;
+
+            this.leftPressed = true;
         }
       
     }
@@ -34,13 +34,13 @@ class Squirtle{
     
     keyUpHandler(e) {
         if (e.keyCode === 39) {
-            // debugger
-            rightPressed = false;
-            // debugger
+
+            this.rightPressed = false;
+
         }
         else if (e.keyCode === 37) {
-            // debugger
-            leftPressed = false;
+
+            this.leftPressed = false;
         }
        
     }
@@ -48,20 +48,25 @@ class Squirtle{
     
 
     drawSquirtle() {
-        this.ctx.drawSquirtle(this.squirtlePhoto, this.squirtleX, this.canvas-height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth)
+        // debugger
+        this.ctx.beginPath();
+        this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
+        this.ctx.fillStyle = "orange";
+        this.ctx.fill();
+        this.ctx.closePath();
+        // this.ctx.drawSquirtle(this.squirtleX, this.canvas-height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth)
     }
 
     draw() {
-        drawSquirtle()
-
+        this.drawSquirtle();
+        // this.ctx.fillText("GAME OVER", this.canvas.width / 2, 100);
         if (this.rightPressed && this.squirtleX < this.canvas.width - this.squirtleWidth) {
             squirtleX += this.squirtleSpeed;
-        } else if (leftPressed && squirtleX > 0) {
+        } else if (this.leftPressed && this.squirtleX > 0) {
             squirtleX -= this.squirtleSpeed;
        
         }
     }
     
 }
-
 export default Squirtle;
