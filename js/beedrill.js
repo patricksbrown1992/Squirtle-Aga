@@ -31,8 +31,8 @@ class Beedrill{
                 this.beedrills[c][r].x = beedrillX;
                 this.beedrills[c][r].y = beedrillY;
                 
-                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 50, 50, beedrillX, this.canvas.height - beedrillY, 50, 50)
-                ctx.rect(beedrillX, beedrillY, this.width, this.height);
+                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 50, 50, beedrillX, beedrillY, 50, 50)
+                // ctx.rect(beedrillX, beedrillY, this.width, this.height);
                
             }
         }

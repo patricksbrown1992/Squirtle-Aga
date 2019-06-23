@@ -1,6 +1,6 @@
 class Dragonite{
-    constructor(canvas, ctx){
-        // this.dragonitePhoto = dragonitePhoto;
+    constructor(canvas, ctx, dragonitePhoto){
+        this.dragonitePhoto = dragonitePhoto;
         this.health = 2;
         this.height = 31;
         this.width = 24;
@@ -29,11 +29,13 @@ class Dragonite{
                 var dragoniteY = (r * (this.height + this.dragonitePadding));
                 this.dragonites[c][r].x = dragoniteX;
                 this.dragonites[c][r].y = dragoniteY;
-                ctx.beginPath();
-                ctx.rect(dragoniteX, dragoniteY, this.width, this.height);
-                ctx.fillStyle = "red";
-                ctx.fill();
-                ctx.closePath();
+                // ctx.beginPath();
+                this.ctx.drawImage(this.dragonitePhoto, 0, 0, 50, 50, dragoniteX, dragoniteY, 50, 50)
+
+                // ctx.rect(dragoniteX, dragoniteY, this.width, this.height);
+                // ctx.fillStyle = "red";
+                // ctx.fill();
+                // ctx.closePath();
             }
         }
     }
