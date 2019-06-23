@@ -8,7 +8,6 @@ class SquirtleBulletShooter{
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.collisionDetection = this.collisionDetection.bind(this);
         this.bullets = [];
-        this.dummy = 6;
     }
 
     keyDownHandler(e){
@@ -19,14 +18,15 @@ class SquirtleBulletShooter{
     }
 
     collisionDetection(){
-        this.bullets.forEach((bullet) => {
-            let bulletX = Math.floor(bullet.x);
-         
-            if (bulletX > this.Squirtle.squirtleX ){
-                this.enemy.status -= 1;
-                sBulletHealth.health = 0;
-            }
-        })
+        if(this.bullets.length > 0){
+            this.bullets.forEach((bullet) => {
+                let bulletX = Math.floor(bullet.x);
+             
+                // if (bulletX > this.Squirtle.squirtleX ){
+                //     sBulletHealth.health = 0;
+                // }
+            })
+        }
     }
 }
 
