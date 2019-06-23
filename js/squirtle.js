@@ -1,7 +1,7 @@
 class Squirtle{
-    constructor(canvas, ctx){
+    constructor(canvas, ctx, squirtlePhoto){
         this.squirtleWidth = 24;
-        // this.squirtlePhoto = squirtlePhoto;
+        this.squirtlePhoto = squirtlePhoto;
         this.squirtleHeight = 31;
         this.canvas = canvas;
         this.squirtleX = (this.canvas.width - this.squirtleWidth) / 2;
@@ -48,11 +48,12 @@ class Squirtle{
 
     drawSquirtle() {
         // debugger
-        this.ctx.beginPath();
+        // this.ctx.beginPath();
+        this.ctx.drawImage(this.squirtlePhoto, 0, 0, 50, 50, this.squirtleX, this.canvas.height - 50, 50, 50);
         this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
-        this.ctx.fillStyle = "orange";
-        this.ctx.fill();
-        this.ctx.closePath();
+        // this.ctx.fillStyle = "orange";
+        // this.ctx.fill();
+        // this.ctx.closePath();
     }
 
     draw() {

@@ -1,6 +1,6 @@
 class Beedrill{
-    constructor(canvas, ctx){
-     
+    constructor(canvas, ctx,beedrillPhoto){
+        this.beedrillPhoto =beedrillPhoto;
         this.health = 1;
         this.height = 22;
         this.width = 20;
@@ -30,11 +30,10 @@ class Beedrill{
                 var beedrillY = (r * (this.height + this.beedrillPadding)) + this.beedrillOffsetTop;
                 this.beedrills[c][r].x = beedrillX;
                 this.beedrills[c][r].y = beedrillY;
-                ctx.beginPath();
+                
+                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 50, 50, beedrillX, this.canvas.height - beedrillY, 50, 50)
                 ctx.rect(beedrillX, beedrillY, this.width, this.height);
-                ctx.fillStyle = "green";
-                ctx.fill();
-                ctx.closePath();
+               
             }
         }
     }

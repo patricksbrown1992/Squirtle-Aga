@@ -1,18 +1,18 @@
 import { request } from "http";
 
 class Game{
-    constructor(canvas, ctx, Squirtle, Butterfree, BeeDrill, Dragonite
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, BeeDrill, beedrillPhoto, Dragonite
         // squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, Dragonite, dragonitePhoto, SquirtleBulletShooter ){
         ){
         this.canvas = canvas;
         this.ctx = ctx;
-        // this.squirtlePhoto = squirtlePhoto;
+        this.squirtlePhoto = squirtlePhoto;
         // this.butterfreePhoto = butterfreePhoto;
-        // this.beedrillPhoto = beedrillPhoto;
+        this.beedrillPhoto = beedrillPhoto;
         // this.dragonitePhoto = dragonitePhoto;
-        this.Squirtle = new Squirtle(canvas, ctx);
+        this.Squirtle = new Squirtle(canvas, ctx, squirtlePhoto);
         this.Butterfree = new Butterfree(canvas, ctx);
-        this.BeeDrill = new BeeDrill(canvas, ctx);
+        this.BeeDrill = new BeeDrill(canvas, ctx, this.beedrillPhoto);
 
         // this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
         // this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
