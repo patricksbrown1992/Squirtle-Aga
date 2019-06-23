@@ -6,11 +6,11 @@ class Beedrill{
         this.width = 20;
         this.canvas = canvas;
         this.ctx = ctx;
-        this.beedrillPadding = 20;
-        this.beedrillOffsetLeft = 90;
-        this.beedrillOffsetTop = 120
+        this.beedrillPadding = 50;
+        this.beedrillOffsetLeft = 100;
+        this.beedrillOffsetTop = 130
         this.beedrillRowCount = 2;
-        this.beedrillColumnCount = 8;
+        this.beedrillColumnCount = 5;
         this.drawBeedrills = this.drawBeedrills.bind(this);
         this.draw = this.draw.bind(this);
         this.beedrills = [];
@@ -31,7 +31,7 @@ class Beedrill{
                 this.beedrills[c][r].x = beedrillX;
                 this.beedrills[c][r].y = beedrillY;
                 
-                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 50, 50, beedrillX, beedrillY, 50, 50)
+                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 70, 70, beedrillX, beedrillY, 50, 50)
                 // ctx.rect(beedrillX, beedrillY, this.width, this.height);
                
             }

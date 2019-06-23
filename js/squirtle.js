@@ -10,7 +10,7 @@ class Squirtle{
         this.ctx = ctx;
         this.spacePressed = false;
         // this.bullets = [];
-        this.squirtleSpeed = 3
+        this.squirtleSpeed = 5;
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.keyUpHandler = this.keyUpHandler.bind(this);
         this.drawSquirtle = this.drawSquirtle.bind(this);
@@ -49,7 +49,7 @@ class Squirtle{
     drawSquirtle() {
         // debugger
         // this.ctx.beginPath();
-        this.ctx.drawImage(this.squirtlePhoto, 0, 0, 50, 50, this.squirtleX, this.canvas.height - 50, 50, 50);
+        this.ctx.drawImage(this.squirtlePhoto, 10, 10, 37, 37, this.squirtleX, this.canvas.height - 50, 50, 50);
         this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
         // this.ctx.fillStyle = "orange";
         // this.ctx.fill();

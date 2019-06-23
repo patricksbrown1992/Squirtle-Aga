@@ -1,7 +1,8 @@
-import { request } from "http";
+
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, BeeDrill, beedrillPhoto, Dragonite, dragonitePhoto
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, BeeDrill, beedrillPhoto,
+        //  Dragonite, dragonitePhoto
         // squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, Dragonite, dragonitePhoto, SquirtleBulletShooter ){
         ){
         this.canvas = canvas;
@@ -9,14 +10,14 @@ class Game{
         this.squirtlePhoto = squirtlePhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
-        this.dragonitePhoto = dragonitePhoto;
+        // this.dragonitePhoto = dragonitePhoto;
         this.Squirtle = new Squirtle(canvas, ctx, this.squirtlePhoto);
-        this.Butterfree = new Butterfree(canvas, ctx), this.butterfreePhoto;
+        this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
         this.BeeDrill = new BeeDrill(canvas, ctx, this.beedrillPhoto);
 
         // this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
         // this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
-        this.Dragonite = new Dragonite(canvas, ctx, this.dragonitePhoto);
+        // this.Dragonite = new Dragonite(canvas, ctx, this.dragonitePhoto);
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         this.lives = 3;
         this.begin = this.begin.bind(this);
@@ -35,7 +36,7 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.BeeDrill.draw();
-        this.Dragonite.draw();
+        // this.Dragonite.draw();
       
     }
 
@@ -44,7 +45,7 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.BeeDrill.draw();
-        this.Dragonite.draw();
+        // this.Dragonite.draw();
         this.life();
     }
 
