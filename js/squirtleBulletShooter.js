@@ -1,18 +1,19 @@
 import SquirtleBullet from './squirtleBullet';
 
 class SquirtleBulletShooter{
-    constructor(ctx, canvas, Squirtle, enemy){
+    constructor(ctx, canvas, Squirtle){
         this.Squirtle = Squirtle;
         this.canvas = canvas;
         this.ctx = ctx;
-        this.enemy = enemy;
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.collisionDetection = this.collisionDetection.bind(this);
         this.bullets = [];
+        this.dummy = 6;
     }
 
     keyDownHandler(e){
-        if (e.keyDownHandler === 90){
+        // debugger
+        if (e.keyCode === 90){
             this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle))
         }
     }

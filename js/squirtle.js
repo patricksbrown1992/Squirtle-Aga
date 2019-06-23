@@ -19,7 +19,7 @@ class Squirtle{
 
 
         keyDownHandler(e) {
-            debugger
+            // debugger
         if (e.keyCode === 39) {
 
             this.rightPressed = true;

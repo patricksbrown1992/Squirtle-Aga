@@ -11,7 +11,7 @@ class SquirtleBullet{
         this.draw = this.draw.bind(this);
         this.drawSquirtleBullet = this.drawSquirtleBullet.bind(this);
         this.x = Squirtle.squirtleX;
-        this.y = 50;
+        this.y = 400;
         this.speed = 3;
     }
 
@@ -24,6 +24,7 @@ class SquirtleBullet{
     }
 
     draw(){
+        // debugger
         this.drawSquirtleBullet();
         this.y -= this.speed;
     }
