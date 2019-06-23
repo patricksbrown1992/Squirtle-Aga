@@ -25,7 +25,7 @@ class Butterfree{
 
 
     drawButterfrees() {
-        debugger
+        // debugger
         for (var c = 0; c < this.butterfreeColumnCount; c++) {
             for (var r = 0; r < this.butterfreeRowCount; r++) {
                 var butterfreeX = (c * (this.width + this.butterfreePadding)) + this.butterfreeOffsetLeft;

@@ -12,7 +12,7 @@ class SquirtleBulletShooter{
     }
 
     keyDownHandler(e){
-        if (e.keyDownHandler === 32){
+        if (e.keyDownHandler === 90){
             this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle))
         }
     }

@@ -8,7 +8,7 @@ class Squirtle{
         this.rightPressed = false;
         this.leftPressed = false;
         this.ctx = ctx;
-        this.spacePressed = false;
+        this.zPressed = false;
         // this.bullets = [];
         this.squirtleSpeed = 5;
         this.keyDownHandler = this.keyDownHandler.bind(this);
@@ -19,6 +19,7 @@ class Squirtle{
 
 
         keyDownHandler(e) {
+            debugger
         if (e.keyCode === 39) {
 
             this.rightPressed = true;
@@ -26,6 +27,8 @@ class Squirtle{
         else if (e.keyCode === 37) {
 
             this.leftPressed = true;
+        } else if (e.keyCode === 90){
+            this.zPressed = true;
         }
       
     }
@@ -40,7 +43,10 @@ class Squirtle{
         else if (e.keyCode === 37) {
 
             this.leftPressed = false;
+        } else if (e.keyCode === 90) {
+            this.zPressed = false;
         }
+
        
     }
 
@@ -64,7 +70,6 @@ class Squirtle{
             this.squirtleX += this.squirtleSpeed;
         } else if (this.leftPressed && this.squirtleX > 0) {
             this.squirtleX -= this.squirtleSpeed;
-       
         }
     }
     
