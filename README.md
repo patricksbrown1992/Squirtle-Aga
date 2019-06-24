@@ -4,6 +4,9 @@ Squirtle-Aga follows Bushnell's Law - easy to learn, hard to master. The player 
 
 This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 
+## Technology
+Javascript, CSS3, HTML5
+
 ## Functionality
 
 * Player presses left/right arrows to move and space bar to shoot. The players starts off with three lives
@@ -13,8 +16,7 @@ This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 * Beedrills and Butterfrees are worth 50 points. Dragonites are worth 400 points and must be hit twice to be destroyed
 
 
-## Wireframes
-![wireframe](/assets/wireframe.png)
+![photo](/assets/squirtle-aga-photo.png)
 
 
 ## Technology 
@@ -29,13 +31,6 @@ This game is inspired by [Galaga](https://en.wikipedia.org/wiki/Galaga)
 * **instructions.js** - shows keys so new players know the rules and buttons
 * **enemies.js** - handles the Butterfree, Beedrill and Dragonite elements of the game
 
-
-##Timeline
-Day 1 - Basic structure
-Day 2 - CSS
-Day 3 - Shooting functionality
-Day 4 - Lives, Score and Game over Modal
-Day 5 - Sprites and backgrounds
 
 ## MVPs
 * Pokemon Sprites and instructions
