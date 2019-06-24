@@ -1,7 +1,7 @@
 
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, BeeDrill, beedrillPhoto, SquirtleBulletShooter){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, BeeDrill, beedrillPhoto, SquirtleBulletShooter, Enemies){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
@@ -10,9 +10,10 @@ class Game{
         this.Squirtle = new Squirtle(canvas, ctx, this.squirtlePhoto);
         this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
         this.BeeDrill = new BeeDrill(canvas, ctx, this.beedrillPhoto);
-        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle)
+        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.BeeDrill)
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         this.lives = 3;
+        this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
         this.begin = this.begin.bind(this);
         this.life = this.life.bind(this);
         document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
@@ -29,6 +30,7 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.BeeDrill.draw();
+        // this.enemies.draw();
         // debugger
         this.SquirtleBulletShooter.bullets.forEach((bullet) => {
             bullet.draw();
@@ -44,6 +46,7 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.BeeDrill.draw();
+        // this.enemies.draw();
         this.life();
     }
 

@@ -6,7 +6,8 @@ class Beedrill{
         this.width = 20;
         this.canvas = canvas;
         this.ctx = ctx;
-        this.beedrillPadding = 50;
+        this.beedrillPaddingBetween = 50;
+        this.beedrillPaddingTop = 25;
         this.beedrillOffsetLeft = 100;
         this.beedrillOffsetTop = 130
         this.beedrillRowCount = 2;
@@ -17,7 +18,7 @@ class Beedrill{
         for (var c = 0; c < this.beedrillColumnCount; c++) {
             this.beedrills[c] = [];
             for (var r = 0; r < this.beedrillRowCount; r++) {
-                this.beedrills[c][r] = { x: 0, y: 0 };
+                this.beedrills[c][r] = { x: 0, y: 0, health: 1 };
             }
         }
     }
@@ -26,13 +27,13 @@ class Beedrill{
     drawBeedrills() {
         for (var c = 0; c < this.beedrillColumnCount; c++) {
             for (var r = 0; r < this.beedrillRowCount; r++) {
-                var beedrillX = (c * (this.width + this.beedrillPadding)) + this.beedrillOffsetLeft;
-                var beedrillY = (r * (this.height + this.beedrillPadding)) + this.beedrillOffsetTop;
+                var beedrillX = (c * (this.width + this.beedrillPaddingBetween)) + this.beedrillOffsetLeft;
+                var beedrillY = (r * (this.height + this.beedrillPaddingTop)) + this.beedrillOffsetTop;
                 this.beedrills[c][r].x = beedrillX;
                 this.beedrills[c][r].y = beedrillY;
                 
                 this.ctx.drawImage(this.beedrillPhoto, 0, 0, 70, 70, beedrillX, beedrillY, 50, 50)
-                // ctx.rect(beedrillX, beedrillY, this.width, this.height);
+ 
                
             }
         }

@@ -1,14 +1,13 @@
 import ButterFree from './butterfree';
 import Beedrill from './beedrill';
-import Dragonite from './dragonite';
+
 
 class EnemyBullet{
-    constructor(canvas, ctx, ButterFree, Beedrill, Dragonite){
+    constructor(canvas, ctx, ButterFree, Beedrill){
         this.canvas = canvas;
         this.ctx = ctx;
         this.ButterFree = ButterFree; 
         this.Beedrill = Beedrill;
-        this.Dragonite = Dragonite;
         this.eBulletWidth = 3;
         this.eBulletHeight = 25;
         this.eBulletHealth = 1;
@@ -20,7 +19,11 @@ class EnemyBullet{
     }
 
     drawEnemyBullet(){
-
+        this.ctx.beginPath();
+        this.ctx.rect(this.x, this.y, this.sBulletWidth, this.sBulletHeight);
+        this.ctx.fillStyle = "green";
+        this.ctx.fill();
+        this.ctx.closePath();
     }
 
     draw(){
