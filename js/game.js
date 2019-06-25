@@ -1,16 +1,16 @@
 
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, SquirtleBulletShooter){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
         this.butterfreePhoto = butterfreePhoto;
-        // this.beedrillPhoto = beedrillPhoto;
+        this.beedrillPhoto = beedrillPhoto;
         this.Squirtle = new Squirtle(canvas, ctx, this.squirtlePhoto);
         this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
-        // this.BeeDrill = new BeeDrill(canvas, ctx, this.beedrillPhoto);
-        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree)
+        this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
+        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill)
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         this.lives = 3;
         // this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
@@ -29,7 +29,7 @@ class Game{
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.Squirtle.draw();
         this.Butterfree.draw();
-        // this.BeeDrill.draw();
+        this.Beedrill.draw();
         // this.enemies.draw();
         // debugger
         this.SquirtleBulletShooter.bullets.forEach((bullet) => {
@@ -45,7 +45,7 @@ class Game{
  
         this.Squirtle.draw();
         this.Butterfree.draw();
-        // this.BeeDrill.draw();
+        this.Beedrill.draw();
         // this.enemies.draw();
         this.life();
     }

@@ -25,8 +25,11 @@ class SquirtleBullet{
 
     draw(){
         // debugger
-        this.drawSquirtleBullet();
-        this.y -= this.speed;
+        if(this.health > 0){
+            this.drawSquirtleBullet();
+            this.y -= this.speed;
+        }
+       
     }
 
 
