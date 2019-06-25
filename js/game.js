@@ -35,8 +35,8 @@ class Game{
         this.SquirtleBulletShooter.bullets.forEach((bullet) => {
             bullet.draw();
             this.SquirtleBulletShooter.collisionDetection();
+            this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
         })
-        this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.sBulletHealth !== 0);
  
       
     }

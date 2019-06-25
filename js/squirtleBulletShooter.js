@@ -26,14 +26,16 @@ class SquirtleBulletShooter{
                 if(bullet.health > 0){
                     for(let i = 0; i < 5; i++){
                         for(let j = 0; j < 2; j++){
-                            let butterfree = this.Butterfrees.butterfrees[i][j];
                             debugger
-                            if (bullet.x > butterfree.x - 15 && bullet.x < butterfree.x + 15 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
-                                butterfree.health -= 1;
-                                bullet.health -= 1;
+                            if (this.Butterfrees.butterfrees[i][j].health > 0){
+                                let butterfree = this.Butterfrees.butterfrees[i][j];
+                                debugger
+                                if (bullet.x > butterfree.x - 7 && bullet.x < butterfree.x + 25 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
+                                    butterfree.health -= 1;
+                                    bullet.health -= 1;
+                                }
+
                             }
-                            
-                            
                         }
                     }
 

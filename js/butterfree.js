@@ -1,7 +1,6 @@
 class Butterfree{
     constructor(canvas, ctx, butterfreePhoto){
         this.butterfreePhoto = butterfreePhoto;
-        this.health = 1;
         this.height = 17;
         this.width = 21;
         this.canvas = canvas;
@@ -29,12 +28,15 @@ class Butterfree{
         // debugger
         for (var c = 0; c < this.butterfreeColumnCount; c++) {
             for (var r = 0; r < this.butterfreeRowCount; r++) {
-                var butterfreeX = (c * (this.width + this.butterfreePaddingBetween)) + this.butterfreeOffsetLeft;
-                var butterfreeY = (r * (this.height + this.butterfreePaddingTop)) + this.butterfreeOffsetTop;
-                this.butterfrees[c][r].x = butterfreeX;
-                this.butterfrees[c][r].y = butterfreeY;
-                if (this.butterfrees[c][r].health > 0) {
+                if (this.butterfrees[c][r].health > 0){
+
+                    var butterfreeX = (c * (this.width + this.butterfreePaddingBetween)) + this.butterfreeOffsetLeft;
+                    var butterfreeY = (r * (this.height + this.butterfreePaddingTop)) + this.butterfreeOffsetTop;
+                    this.butterfrees[c][r].x = butterfreeX;
+                    this.butterfrees[c][r].y = butterfreeY;
                     this.ctx.drawImage(this.butterfreePhoto, 0, 0, 70, 70, butterfreeX, butterfreeY, 50, 50)
+                    
+
                 }
 
             }
