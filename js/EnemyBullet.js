@@ -14,7 +14,6 @@ class EnemyBullet{
         this.draw = this.draw.bind(this);
         this.drawEnemyBullet = this.drawEnemyBullet.bind(this);
         this.Enemies = [];
-        // Loop through all three to get enemies
         this.speed = 3;
     }
 

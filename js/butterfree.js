@@ -33,7 +33,9 @@ class Butterfree{
                 var butterfreeY = (r * (this.height + this.butterfreePaddingTop)) + this.butterfreeOffsetTop;
                 this.butterfrees[c][r].x = butterfreeX;
                 this.butterfrees[c][r].y = butterfreeY;
-                this.ctx.drawImage(this.butterfreePhoto, 0, 0, 70, 70, butterfreeX, butterfreeY, 50, 50)
+                if (this.butterfrees[c][r].health > 0) {
+                    this.ctx.drawImage(this.butterfreePhoto, 0, 0, 70, 70, butterfreeX, butterfreeY, 50, 50)
+                }
 
             }
         }

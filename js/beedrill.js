@@ -31,8 +31,9 @@ class Beedrill{
                 var beedrillY = (r * (this.height + this.beedrillPaddingTop)) + this.beedrillOffsetTop;
                 this.beedrills[c][r].x = beedrillX;
                 this.beedrills[c][r].y = beedrillY;
-                
-                this.ctx.drawImage(this.beedrillPhoto, 0, 0, 70, 70, beedrillX, beedrillY, 50, 50)
+                if (this.beedrills[c][r].health > 0){
+                    this.ctx.drawImage(this.beedrillPhoto, 0, 0, 70, 70, beedrillX, beedrillY, 50, 50)
+                }
  
                
             }
