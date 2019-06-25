@@ -10,7 +10,7 @@ class Squirtle{
         this.ctx = ctx;
         this.zPressed = false;
         // this.bullets = [];
-        this.squirtleSpeed = 5;
+        this.squirtleSpeed = 3;
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.keyUpHandler = this.keyUpHandler.bind(this);
         this.drawSquirtle = this.drawSquirtle.bind(this);

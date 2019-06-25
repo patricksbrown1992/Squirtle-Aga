@@ -30,7 +30,7 @@ class SquirtleBulletShooter{
                             if (this.Butterfrees.butterfrees[i][j].health > 0){
                                 let butterfree = this.Butterfrees.butterfrees[i][j];
                                 debugger
-                                if (bullet.x > butterfree.x - 7 && bullet.x < butterfree.x + 25 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
+                                if (bullet.x > butterfree.x - 5 && bullet.x < butterfree.x + 35 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
                                     butterfree.health -= 1;
                                     bullet.health -= 1;
                                 }
