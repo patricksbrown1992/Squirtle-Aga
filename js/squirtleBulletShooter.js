@@ -36,7 +36,7 @@ class SquirtleBulletShooter{
                             }
                         }
                     }
-                            debugger
+
                     for(let k = 0; k < 5; k++){
                         for(let l = 0; l < 2; l++){
                             if (this.Beedrills.beedrills[k][l].health > 0){

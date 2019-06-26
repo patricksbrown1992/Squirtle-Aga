@@ -12,7 +12,6 @@ class Game{
         this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
         this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill)
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
-        this.lives = 3;
         // this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
         this.begin = this.begin.bind(this);
         this.life = this.life.bind(this);

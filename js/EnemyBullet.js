@@ -10,11 +10,12 @@ class EnemyBullet{
         this.Beedrill = Beedrill;
         this.eBulletWidth = 3;
         this.eBulletHeight = 25;
-        this.eBulletHealth = 1;
+        this.health = 1;
         this.draw = this.draw.bind(this);
         this.drawEnemyBullet = this.drawEnemyBullet.bind(this);
         this.Enemies = [];
         this.speed = 3;
+        this.y = 220;
     }
 
     drawEnemyBullet(){

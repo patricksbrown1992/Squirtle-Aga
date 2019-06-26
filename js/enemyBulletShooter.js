@@ -14,11 +14,12 @@ class EnemyBulletShooter {
     collisionDetection() {
         if (this.bullets.length > 0) {
             this.bullets.forEach((bullet) => {
-                let bulletX = Math.floor(bullet.x);
-
-                // if (bulletX > this.Squirtle.squirtleX ){
-                //     sBulletHealth.health = 0;
-                // }
+                if(bullet.health > 0){
+                    if (bullet.x > this.Squirtle.squirtleX - 5 && bullet.x < this.Squirtle.squirtleX + 35 && bullet.y > this.Squirtle.squirtleHeight - 15 && bullet.y < this.Squirtle.squirtleHeight + 15){
+                        bullet.health -=1;
+                        this.Squirtle.health -=1;
+                    }
+                }
             })
         }
     }
