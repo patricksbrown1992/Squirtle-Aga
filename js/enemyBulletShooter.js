@@ -10,6 +10,7 @@ class EnemyBulletShooter {
         this.collisionDetection = this.collisionDetection.bind(this);
         this.bullets = [];
         this.shooterCheck = this.shooterCheck.bind(this);
+        this.gameOver = false;
 
     }
 
@@ -43,7 +44,7 @@ class EnemyBulletShooter {
                     if (Math.floor(bullet.x) > this.Squirtle.squirtleX && Math.floor(bullet.x) < this.Squirtle.squirtleX + 25 && bullet.y > 475) {
                         bullet.health -=1;
                         this.Squirtle.health -=1;
-                        debugger
+                        this.gameOver = true;
                    
                     }
                 }
