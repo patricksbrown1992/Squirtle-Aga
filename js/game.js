@@ -13,7 +13,7 @@ class Game{
         this.Squirtle = new Squirtle(this.canvas, this.ctx, this.squirtlePhoto);
         this.Butterfree = new Butterfree(this.canvas, this.ctx, this.butterfreePhoto);
         this.Beedrill = new Beedrill(this.canvas, this.ctx, this.beedrillPhoto);
-        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill);
+        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
         this.EnemyBulletShooter = new EnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle);
         this.gameOver = false;
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);

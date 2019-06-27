@@ -1,9 +1,10 @@
 import SquirtleBullet from './squirtleBullet';
 
 class SquirtleBulletShooter{
-    constructor(ctx, canvas, Squirtle, Butterfrees, Beedrills){
+    constructor(ctx, canvas, Squirtle, Butterfrees, Beedrills, musicObject){
         // this.Beedrills = Beedrills;
         this.Beedrills = Beedrills
+        this.musicObject = musicObject;
         this.Butterfrees = Butterfrees;
         this.Squirtle = Squirtle;
         this.canvas = canvas;
@@ -16,6 +17,7 @@ class SquirtleBulletShooter{
     keyDownHandler(e){
         // debugger
         if (e.keyCode === 90){
+            this.musicObject.watergun.play();
             this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle))
         }
     }
