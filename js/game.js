@@ -25,6 +25,7 @@ class Game{
 
     }
     life(){
+        // debugger
         requestAnimationFrame(this.life)
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.Squirtle.draw();
@@ -35,10 +36,12 @@ class Game{
             this.SquirtleBulletShooter.collisionDetection();
             this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
         });
-    
+        // debugger
+        setInterval(this.EnemyBulletShooter.shooterCheck(), 2000);
         this.EnemyBulletShooter.bullets.forEach((bullet) => {
             bullet.draw();
-            this.EnemyBulletShooter.shooterCheck();
+          
+            
             this.EnemyBulletShooter.collisionDetection();
             this.EnemyBulletShooter.bullets = this.EnemyBulletShooter.bullets.filter(bullet => bullet.y < 540)
         });
@@ -52,6 +55,7 @@ class Game{
         this.Butterfree.draw();
         this.Beedrill.draw();
         // this.enemies.draw();
+        // debugger
         this.life();
     }
 

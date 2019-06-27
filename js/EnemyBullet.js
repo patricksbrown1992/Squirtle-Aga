@@ -3,7 +3,7 @@ import Beedrill from './beedrill';
 
 
 class EnemyBullet{
-    constructor(canvas, ctx, ButterFree, Beedrill){
+    constructor(canvas, ctx, x, y){
         this.canvas = canvas;
         this.ctx = ctx;
         this.ButterFree = ButterFree; 
@@ -14,13 +14,14 @@ class EnemyBullet{
         this.draw = this.draw.bind(this);
         this.drawEnemyBullet = this.drawEnemyBullet.bind(this);
         this.speed = 3;
-        this.y = 220;
+        this.y = y;
+        this.x = x;
         
     }
 
     drawEnemyBullet(){
         this.ctx.beginPath();
-        this.ctx.rect(this.x, this.y, this.sBulletWidth, this.sBulletHeight);
+        this.ctx.rect(this.x, this.y, this.eBulletWidth, this.eBulletHeight);
         this.ctx.fillStyle = "green";
         this.ctx.fill();
         this.ctx.closePath();

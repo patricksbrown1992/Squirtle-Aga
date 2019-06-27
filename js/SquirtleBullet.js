@@ -17,7 +17,7 @@ class SquirtleBullet{
 
     drawSquirtleBullet(){
         this.ctx.beginPath();
-        this.ctx.rect(this.x, this.y, this.sBulletWidth, this.sBulletHeight);
+        this.ctx.rect(this.x + 15, this.y, this.sBulletWidth, this.sBulletHeight);
         this.ctx.fillStyle = "blue";
         this.ctx.fill();
         this.ctx.closePath();
