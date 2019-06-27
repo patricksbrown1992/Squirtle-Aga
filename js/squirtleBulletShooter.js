@@ -18,7 +18,7 @@ class SquirtleBulletShooter{
         // debugger
         if (e.keyCode === 90){
             this.musicObject.watergun.play();
-            this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle))
+            setTimeout(() => this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle)), 500) 
         }
     }
 
@@ -31,7 +31,7 @@ class SquirtleBulletShooter{
                         for(let j = 0; j < 2; j++){
                             if (this.Butterfrees.butterfrees[i][j].health > 0){
                                 let butterfree = this.Butterfrees.butterfrees[i][j];
-                                if (bullet.x > butterfree.x - 10 && bullet.x < butterfree.x + 35 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
+                                if (bullet.x > butterfree.x - 25 && bullet.x < butterfree.x + 35 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
                                     butterfree.health -= 1;
                                     bullet.health -= 1;
                                 }
@@ -43,7 +43,7 @@ class SquirtleBulletShooter{
                         for(let l = 0; l < 2; l++){
                             if (this.Beedrills.beedrills[k][l].health > 0){
                                 let beedrill = this.Beedrills.beedrills[k][l];
-                                if (bullet.x > beedrill.x - 10 && bullet.x < beedrill.x + 35 && bullet.y > beedrill.y - 15 && bullet.y < beedrill.y + 15) {
+                                if (bullet.x > beedrill.x - 25 && bullet.x < beedrill.x + 5 && bullet.y > beedrill.y - 15 && bullet.y < beedrill.y + 15) {
                                     beedrill.health -= 1;
                                     bullet.health -= 1;
                                 }
