@@ -1,10 +1,11 @@
 
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
+        this.musicObject = musicObject;
         this.gameOverPhoto = gameOverPhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
@@ -33,7 +34,7 @@ class Game{
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
         } else {
-
+            this.musicObject.music.play();
             let count = 0;
             this.Beedrill.beedrills.forEach( (beedrill) => {
                 if(beedrill[0].health > 0){
