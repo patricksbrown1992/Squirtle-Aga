@@ -26,6 +26,9 @@ class Game{
     }
     life(){
         // debugger
+        if(this.Squirtle.health <= 0){
+            this.gameOverScreen();
+        }
         requestAnimationFrame(this.life)
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.Squirtle.draw();
@@ -45,8 +48,21 @@ class Game{
             this.EnemyBulletShooter.collisionDetection();
             this.EnemyBulletShooter.bullets = this.EnemyBulletShooter.bullets.filter(bullet => bullet.y < 540)
         });
+
  
       
+    }
+
+    gameOverScreen(){
+        let image = new Image();
+        image.onload = () => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.drawImage(img, 135, -40, this.canvas.width, 500, 0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.font = "40px Arial";
+            this.ctx.fillStyle = "white";
+            this.ctx.textAlign = "center";
+            this.ctx.fillText("GAME OVER", this.canvas.width / 2, 100);
+        }
     }
 
     begin(){

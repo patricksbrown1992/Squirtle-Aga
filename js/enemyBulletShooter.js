@@ -17,10 +17,10 @@ class EnemyBulletShooter {
         let i = Math.floor(Math.random() * this.Butterfree.butterfreeColumnCount);
         let j = Math.floor(Math.random() * 2);
         let k = this.Butterfree.butterfrees[i][j];
-        let num = Math.floor(Math.random() * 35);
+        let num = Math.floor(Math.random() * 30);
 
         if (k.health > 0 && num == 5){
-            debugger
+            // debugger
             this.bullets.push(new EnemyBullet(this.canvas, this.ctx, k.x + 15, k.y + 17))
         }
 
@@ -28,22 +28,23 @@ class EnemyBulletShooter {
         let m = Math.floor(Math.random() * 2);
         let n = this.Beedrill.beedrills[l][m];
         if (n.health > 0 && num == 7) {
+            // debugger
             this.bullets.push(new EnemyBullet(this.canvas, this.ctx, n.x + 15, n.y))
         }
      
     };
 
     collisionDetection() {
-        debugger
+        // debugger
         if (this.bullets.length > 0) {
             this.bullets.forEach((bullet) => {
                 if(bullet.health > 0){
-                    if (bullet.x > this.Squirtle.squirtleX - 5 && bullet.x < this.Squirtle.squirtleX + 35 && bullet.y > this.Squirtle.squirtleHeight - 15 && bullet.y < this.Squirtle.squirtleHeight + 15){
+                    // debugger
+                    if (Math.floor(bullet.x) > this.Squirtle.squirtleX && Math.floor(bullet.x) < this.Squirtle.squirtleX + 25 && bullet.y > 475) {
                         bullet.health -=1;
                         this.Squirtle.health -=1;
-                        // if (this.Squirtle.health <= 0){
-
-                        // }
+                        debugger
+                   
                     }
                 }
             })
