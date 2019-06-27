@@ -1,16 +1,17 @@
 
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
-        this.Squirtle = new Squirtle(canvas, ctx, this.squirtlePhoto);
-        this.Butterfree = new Butterfree(canvas, ctx, this.butterfreePhoto);
-        this.Beedrill = new Beedrill(canvas, ctx, this.beedrillPhoto);
-        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill)
+        this.Squirtle = new Squirtle(this.canvas, this.ctx, this.squirtlePhoto);
+        this.Butterfree = new Butterfree(this.canvas, this.ctx, this.butterfreePhoto);
+        this.Beedrill = new Beedrill(this.canvas, this.ctx, this.beedrillPhoto);
+        this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill);
+        this.EnemyBulletShooter = new EnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle);
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         // this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
         this.begin = this.begin.bind(this);
@@ -29,13 +30,18 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.Beedrill.draw();
-        // this.enemies.draw();
-        // debugger
         this.SquirtleBulletShooter.bullets.forEach((bullet) => {
             bullet.draw();
             this.SquirtleBulletShooter.collisionDetection();
             this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
-        })
+        });
+    
+        this.EnemyBulletShooter.bullets.forEach((bullet) => {
+            bullet.draw();
+            this.EnemyBulletShooter.shooterCheck();
+            this.EnemyBulletShooter.collisionDetection();
+            this.EnemyBulletShooter.bullets = this.EnemyBulletShooter.bullets.filter(bullet => bullet.y < 540)
+        });
  
       
     }

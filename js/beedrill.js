@@ -1,6 +1,6 @@
 class Beedrill{
     constructor(canvas, ctx,beedrillPhoto){
-        this.beedrillPhoto =beedrillPhoto;
+        this.beedrillPhoto = beedrillPhoto;
         this.height = 22;
         this.width = 20;
         this.canvas = canvas;
