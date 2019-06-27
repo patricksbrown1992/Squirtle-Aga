@@ -29,8 +29,10 @@ class Game{
 
     }
     life(){
-        debugger
+        
         if(this.Squirtle.health <= 0){
+            this.musicObject.music.pause();
+            this.musicObject.heal.play();
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
         } else {
@@ -99,7 +101,6 @@ class Game{
 
 
     begin(){
-        
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.Beedrill.draw();
