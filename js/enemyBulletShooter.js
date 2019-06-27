@@ -1,10 +1,11 @@
 import EnemyBullet from './enemyBullet';
 
 class EnemyBulletShooter {
-    constructor(ctx, canvas, Beedrill, Butterfree, Squirtle) {
+    constructor(ctx, canvas, Beedrill, Butterfree, Squirtle, musicObject) {
         this.Squirtle = Squirtle;
         this.Beedrill = Beedrill;
         this.Butterfree = Butterfree;
+        this.musicObject = musicObject;
         this.canvas = canvas;
         this.ctx = ctx;
         this.collisionDetection = this.collisionDetection.bind(this);
@@ -44,7 +45,7 @@ class EnemyBulletShooter {
                     if (Math.floor(bullet.x) > this.Squirtle.squirtleX && Math.floor(bullet.x) < this.Squirtle.squirtleX + 25 && bullet.y > 475) {
                         bullet.health -=1;
                         this.Squirtle.health -=1;
-                        this.gameOver = true;
+                        this.musicObject.hit.play();
                    
                     }
                 }

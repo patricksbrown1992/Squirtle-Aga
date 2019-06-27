@@ -14,7 +14,7 @@ class Game{
         this.Butterfree = new Butterfree(this.canvas, this.ctx, this.butterfreePhoto);
         this.Beedrill = new Beedrill(this.canvas, this.ctx, this.beedrillPhoto);
         this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
-        this.EnemyBulletShooter = new EnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle);
+        this.EnemyBulletShooter = new EnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle, this.musicObject);
         this.gameOver = false;
         // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
         // this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
