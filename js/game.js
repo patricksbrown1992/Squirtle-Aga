@@ -57,10 +57,13 @@ class Game{
             // debugger
             if( count == 0){
                 // debugger
+                this.musicObject.music.pause();
+                this.musicObject.victory.play();
                 const image = new Image()
                 image.src = './assets/deal-with-it.jpg';
+
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                debugger
+
                 image.onload = () => {
                     this.ctx.drawImage(image, 0, 0, 500, 339, 0, 0, this.canvas.width, this.canvas.height);
                 }
