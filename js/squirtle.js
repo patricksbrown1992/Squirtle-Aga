@@ -17,6 +17,7 @@ class Squirtle{
         this.drawSquirtle = this.drawSquirtle.bind(this);
         this.handleMute = this.handleMute.bind(this);
         this.draw = this.draw.bind(this);
+        this.paused = false;
     }
 
 
@@ -31,11 +32,15 @@ class Squirtle{
     }
 
     handleMute(e){
-        // debugger
+        debugger
         if(e.keyCode === 109) {
             this.mutePressed = !this.mutePressed;
+        } else if(e.keyCode == 112){
+            this.paused = !this.paused;
         }
     }
+
+    
 
     
     keyUpHandler(e) {

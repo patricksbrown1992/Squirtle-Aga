@@ -27,6 +27,7 @@ class Game{
         document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
         document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
         document.addEventListener('keypress', this.Squirtle.handleMute, false)
+        // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
 
     start(){
@@ -34,7 +35,10 @@ class Game{
     }
 
     life(){
-        
+        // debugger
+        if (this.Squirtle.paused){
+            debugger
+        }
         if(this.Squirtle.health <= 0){
             // debugger
             if (!this.Squirtle.mutePressed){
@@ -44,7 +48,7 @@ class Game{
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
         } else {
-            debugger
+            // debugger
             if (!this.Squirtle.mutePressed) {
                 this.musicObject.music.play();
             } else {
