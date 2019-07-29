@@ -17,7 +17,11 @@ class SquirtleBulletShooter{
     keyDownHandler(e){
         // debugger
         if (e.keyCode === 90){
-            this.musicObject.watergun.play();
+            if(this.Squirtle.mutePressed){
+                this.musicObject.watergun.pause();
+            } else {
+                this.musicObject.watergun.play();
+            }
             setTimeout(() => this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle)), 500) 
         }
     }

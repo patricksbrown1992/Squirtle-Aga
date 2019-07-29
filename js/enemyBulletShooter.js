@@ -45,7 +45,11 @@ class EnemyBulletShooter {
                     if (Math.floor(bullet.x) > this.Squirtle.squirtleX && Math.floor(bullet.x) < this.Squirtle.squirtleX + 25 && bullet.y > 475) {
                         bullet.health -=1;
                         this.Squirtle.health -=1;
-                        this.musicObject.hit.play();
+                        if (this.Squirtle.mutePressed){
+                            this.musicObject.hit.pause();
+                        } else {
+                            this.musicObject.hit.play();
+                        }
                    
                     }
                 }
