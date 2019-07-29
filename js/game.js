@@ -1,4 +1,9 @@
-
+const STATUS = {
+    PLAYING: 0,
+    GAMOVER: 1,
+    MENU: 2,
+    PAUSED: 3
+}
 
 class Game{
     constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject){
@@ -16,27 +21,35 @@ class Game{
         this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
         this.EnemyBulletShooter = new EnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle, this.musicObject);
         this.gameOver = false;
-        // this.SquirtleBulletShooter = new SquirtleBulletShooter(ctx, canvas, this.Squirtle);
-        // this.enemies = new Enemies(canvas, ctx, this.beedrillPhoto, this.butterfreePhoto);
         this.begin = this.begin.bind(this);
         this.life = this.life.bind(this);
         document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
         document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
         document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
+        document.addEventListener('keypress', this.Squirtle.handleMute, false)
     }
 
     start(){
 
     }
+
     life(){
         
         if(this.Squirtle.health <= 0){
-            this.musicObject.music.pause();
-            this.musicObject.heal.play();
+            // debugger
+            if (!this.Squirtle.mutePressed){
+                this.musicObject.music.pause();
+                this.musicObject.heal.play();
+            }
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
         } else {
-            this.musicObject.music.play();
+            debugger
+            if (!this.Squirtle.mutePressed) {
+                this.musicObject.music.play();
+            } else {
+                this.musicObject.music.pause();
+            }
             let count = 0;
             this.Beedrill.beedrills.forEach( (beedrill) => {
                 if(beedrill[0].health > 0){
@@ -59,8 +72,10 @@ class Game{
             // debugger
             if( count == 0){
                 // debugger
-                this.musicObject.music.pause();
-                this.musicObject.victory.play();
+                if (!this.Squirtle.mutePressed) {
+                    this.musicObject.music.pause();
+                    this.musicObject.victory.play();
+                }
                 const image = new Image()
                 image.src = './assets/deal-with-it.jpg';
 
@@ -101,13 +116,20 @@ class Game{
 
 
     begin(){
+        // debugger
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.Beedrill.draw();
-        // this.enemies.draw();
-        // debugger
         this.life();
     }
+
+    // muteToggle(ele){
+    //     if (ele.muted) {
+    //         ele.muted = false;
+    //     } else {
+    //         ele.muted = true;
+    //     }
+    // }
 
     
 }
