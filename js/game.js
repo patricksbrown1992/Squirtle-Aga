@@ -11,6 +11,7 @@ class Game{
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
         this.musicObject = musicObject;
+        // this.state = STATUS.PLAYING
         this.gameOverPhoto = gameOverPhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
@@ -23,10 +24,13 @@ class Game{
         this.gameOver = false;
         this.begin = this.begin.bind(this);
         this.life = this.life.bind(this);
+        this.keyHandler = this.keyHandler.bind(this);
+        this.drawPause = this.drawPause.bind(this);
         document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
         document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
         document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
         document.addEventListener('keypress', this.Squirtle.handleMute, false)
+        document.addEventListener("keyup", this.keyHandler, false);
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
 
@@ -34,83 +38,115 @@ class Game{
 
     }
 
+    keyHandler(e){
+        debugger
+        if (e.keyCode === 112){
+            // this.state = STATUS.PAUSED;
+            // this.drawPause();
+            this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+            this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.fill();
+            this.ctx.fillStyle = "white";
+            this.ctx.textAlign = "center";
+            this.ctx.font = "50px Arial";
+            this.ctx.fillText("Squirtle's Resting", this.canvas.width / 2, this.canvas.height / 3);
+        }
+    }
+
+    drawPause(){
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fill();
+        this.ctx.fillStyle = "white";
+        this.ctx.textAlign = "center";
+        this.ctx.font = "50px Arial";
+        this.ctx.fillText("Squirtle's Resting", this.canvas.width / 2, this.canvas.height / 3);
+    }
+
     life(){
         // debugger
-        if (this.Squirtle.paused){
+        if (this.state == STATUS.PAUSED){
             debugger
-        }
-        if(this.Squirtle.health <= 0){
+            return
             // debugger
-            if (!this.Squirtle.mutePressed){
-                this.musicObject.music.pause();
-                this.musicObject.heal.play();
-            }
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
+            // // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+           
+            // return
         } else {
-            // debugger
-            if (!this.Squirtle.mutePressed) {
-                this.musicObject.music.play();
+
+            if(this.Squirtle.health <= 0){
+                // debugger
+                if (!this.Squirtle.mutePressed){
+                    this.musicObject.music.pause();
+                    this.musicObject.heal.play();
+                }
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
             } else {
-                this.musicObject.music.pause();
-            }
-            let count = 0;
-            this.Beedrill.beedrills.forEach( (beedrill) => {
-                if(beedrill[0].health > 0){
-                    count += 1 ;
-                }
-                if (beedrill[1].health > 0) {
-                    count += 1;
-                }
-            })
-    
-            this.Butterfree.butterfrees.forEach( (butterfree) => {
-            
-                if(butterfree[0].health > 0){
-                    count += 1;
-                }
-                if (butterfree[1].health > 0) {
-                    count += 1;
-                }
-            }) 
-            // debugger
-            if( count == 0){
                 // debugger
                 if (!this.Squirtle.mutePressed) {
+                    this.musicObject.music.play();
+                } else {
                     this.musicObject.music.pause();
-                    this.musicObject.victory.play();
                 }
-                const image = new Image()
-                image.src = './assets/deal-with-it.jpg';
-
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-                image.onload = () => {
-                    this.ctx.drawImage(image, 0, 0, 500, 339, 0, 0, this.canvas.width, this.canvas.height);
-                }
+                let count = 0;
+                this.Beedrill.beedrills.forEach( (beedrill) => {
+                    if(beedrill[0].health > 0){
+                        count += 1 ;
+                    }
+                    if (beedrill[1].health > 0) {
+                        count += 1;
+                    }
+                })
+        
+                this.Butterfree.butterfrees.forEach( (butterfree) => {
                 
-                
-            } else {
-    
-                requestAnimationFrame(this.life)
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-                this.Squirtle.draw();
-                this.Butterfree.draw();
-                this.Beedrill.draw();
-                this.SquirtleBulletShooter.bullets.forEach((bullet) => {
-                    bullet.draw();
-                    this.SquirtleBulletShooter.collisionDetection();
-                    this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
-                });
+                    if(butterfree[0].health > 0){
+                        count += 1;
+                    }
+                    if (butterfree[1].health > 0) {
+                        count += 1;
+                    }
+                }) 
                 // debugger
-                setInterval(this.EnemyBulletShooter.shooterCheck(), 2000);
-                this.EnemyBulletShooter.bullets.forEach((bullet) => {
-                    bullet.draw();
-                  
+                if( count == 0){
+                    // debugger
+                    if (!this.Squirtle.mutePressed) {
+                        this.musicObject.music.pause();
+                        this.musicObject.victory.play();
+                    }
+                    const image = new Image()
+                    image.src = './assets/deal-with-it.jpg';
+    
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+                    image.onload = () => {
+                        this.ctx.drawImage(image, 0, 0, 500, 339, 0, 0, this.canvas.width, this.canvas.height);
+                    }
                     
-                    this.EnemyBulletShooter.collisionDetection();
-                    this.EnemyBulletShooter.bullets = this.EnemyBulletShooter.bullets.filter(bullet => bullet.y < 540)
-                });
+                    
+                } else {
+        
+                    requestAnimationFrame(this.life)
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+                    this.Squirtle.draw();
+                    this.Butterfree.draw();
+                    this.Beedrill.draw();
+                    this.SquirtleBulletShooter.bullets.forEach((bullet) => {
+                        bullet.draw();
+                        this.SquirtleBulletShooter.collisionDetection();
+                        this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
+                    });
+                    // debugger
+                    setInterval(this.EnemyBulletShooter.shooterCheck(), 2000);
+                    this.EnemyBulletShooter.bullets.forEach((bullet) => {
+                        bullet.draw();
+                      
+                        
+                        this.EnemyBulletShooter.collisionDetection();
+                        this.EnemyBulletShooter.bullets = this.EnemyBulletShooter.bullets.filter(bullet => bullet.y < 540)
+                    });
+                }
             }
     
      
@@ -124,6 +160,7 @@ class Game{
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.Beedrill.draw();
+        this.STATUS = 0;
         this.life();
     }
 

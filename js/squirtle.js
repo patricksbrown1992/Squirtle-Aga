@@ -35,9 +35,10 @@ class Squirtle{
         debugger
         if(e.keyCode === 109) {
             this.mutePressed = !this.mutePressed;
-        } else if(e.keyCode == 112){
-            this.paused = !this.paused;
         }
+        // } else if(e.keyCode == 112){
+        //     this.paused = !this.paused;
+        // }
     }
 
     
