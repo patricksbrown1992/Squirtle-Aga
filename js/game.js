@@ -11,7 +11,7 @@ class Game{
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
         this.musicObject = musicObject;
-        // this.state = STATUS.PLAYING
+        this.state = STATUS.MENU;
         this.gameOverPhoto = gameOverPhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
@@ -31,6 +31,7 @@ class Game{
         document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
         document.addEventListener('keypress', this.Squirtle.handleMute, false)
         document.addEventListener("keyup", this.keyHandler, false);
+        this.menuDraw = this.menuDraw.bind(this);
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
 
@@ -51,16 +52,17 @@ class Game{
                 this.state = STATUS.PLAYING
                 this.life()
             }
-            // this.state = STATUS.PAUSED;
-            // this.drawPause();
-            // this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-            // this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
-            // this.ctx.fill();
-            // this.ctx.fillStyle = "white";
-            // this.ctx.textAlign = "center";
-            // this.ctx.font = "50px Arial";
-            // this.ctx.fillText("Squirtle's Resting", this.canvas.width / 2, this.canvas.height / 3);
+            
         }
+
+         if (e.keyCode === 13) {
+             if (this.state !== STATUS.PLAYING) {
+
+                 this.state = STATUS.PLAYING
+                 this.life()
+             }
+
+         }
     }
 
     drawPause(){
@@ -74,18 +76,15 @@ class Game{
     }
 
     life(){
-        // debugger
-        if (this.state == STATUS.PAUSED){
-            debugger
+
+        if (this.state == STATUS.PAUSED || this.state == STATUS.MENU) {
+
             return
-            // debugger
-            // // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-           
-            // return
+        
         } else {
 
             if(this.Squirtle.health <= 0){
-                // debugger
+
                 if (!this.Squirtle.mutePressed){
                     this.musicObject.music.pause();
                     this.musicObject.heal.play();
@@ -93,7 +92,7 @@ class Game{
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 this.ctx.drawImage(this.gameOverPhoto, 0, 0, 500, 200)
             } else {
-                // debugger
+
                 if (!this.Squirtle.mutePressed) {
                     this.musicObject.music.play();
                 } else {
@@ -167,11 +166,22 @@ class Game{
 
     begin(){
         // debugger
+        this.menuDraw();
         this.Squirtle.draw();
         this.Butterfree.draw();
         this.Beedrill.draw();
         this.STATUS = 0;
         this.life();
+    }
+
+    menuDraw() {
+        this.ctx.fillStyle = "rgba(0, 0, 0, 1)";
+        this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fill();
+        this.ctx.font = "40px Arial";
+        this.ctx.fillStyle = "white";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText("Press Enter to begin", this.canvas.width / 2, 200);
     }
 
     // muteToggle(ele){
