@@ -20,8 +20,8 @@ class Score {
          this.ctx.font = "20px Arial";
          this.ctx.fillStyle = "red";
          this.ctx.textAlign = "top";
-         this.ctx.fillText(`Lives: ${this.Squirtle.health}`, this.canvas.width - 100, 25);
-        //  this.ctx.fillText(`Score: ${this.Squirtle.score}`, 100, 25);
+         this.ctx.fillText(`Lives: ${this.Squirtle.health}`, this.canvas.width - 100, 15);
+         this.ctx.fillText(`Score: ${this.Squirtle.score}`, 100, 15);
 
      }
 }

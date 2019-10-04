@@ -40,8 +40,8 @@ class Game{
         this.newButterfree = Butterfree;
         this.newSquirtleBulletShooter = SquirtleBulletShooter;
         this.newEnemyBulletShooter = EnemyBulletShooter;
-        this.score = new Score(this.canvas, this.ctx, this.Squirtle);
         this.newScore = Score
+        this.score = new Score(this.canvas, this.ctx, this.Squirtle);
 
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
