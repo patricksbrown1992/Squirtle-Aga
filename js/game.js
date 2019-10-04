@@ -227,10 +227,11 @@ class Game{
         this.ctx.fillStyle = "white";
         this.ctx.textAlign = "center";
         this.ctx.fillText("Press Enter to begin", this.canvas.width / 2, 100);
-        this.ctx.fillText("Press P to pause", this.canvas.width / 2, 175);
-        this.ctx.fillText("Press M to mute", this.canvas.width / 2, 255);
-        this.ctx.fillText("You have 3 lives", this.canvas.width / 2, 325);
-        this.ctx.fillText("I choose you Squirtle!", this.canvas.width / 2, 400);
+        this.ctx.fillText("Press Z to shoot", this.canvas.width / 2, 175);
+        this.ctx.fillText("Press left and right to move", this.canvas.width / 2, 250);
+        this.ctx.fillText("Press P to pause", this.canvas.width / 2, 325);
+        this.ctx.fillText("Press M to mute", this.canvas.width / 2, 400);
+
         
     }
     fainted(){
