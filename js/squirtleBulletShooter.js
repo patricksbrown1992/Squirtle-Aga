@@ -38,6 +38,7 @@ class SquirtleBulletShooter{
                                 if (bullet.x > butterfree.x - 25 && bullet.x < butterfree.x + 35 && bullet.y > butterfree.y - 15 && bullet.y < butterfree.y + 15){
                                     butterfree.health -= 1;
                                     bullet.health -= 1;
+                                    this.Squirtle.score += 25;
                                 }
                             }
                         }
@@ -50,6 +51,7 @@ class SquirtleBulletShooter{
                                 if (bullet.x > beedrill.x - 25 && bullet.x < beedrill.x + 5 && bullet.y > beedrill.y - 15 && bullet.y < beedrill.y + 15) {
                                     beedrill.health -= 1;
                                     bullet.health -= 1;
+                                    this.Squirtle.score += 25;
                                 }
                             }
 

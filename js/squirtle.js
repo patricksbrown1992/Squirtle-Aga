@@ -18,6 +18,7 @@ class Squirtle{
         this.handleMute = this.handleMute.bind(this);
         this.draw = this.draw.bind(this);
         this.paused = false;
+        this.score = 0;
     }
 
 

@@ -7,7 +7,7 @@ const STATUS = {
 }
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject, Score){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
@@ -40,7 +40,8 @@ class Game{
         this.newButterfree = Butterfree;
         this.newSquirtleBulletShooter = SquirtleBulletShooter;
         this.newEnemyBulletShooter = EnemyBulletShooter;
-
+        this.score = Score
+        
 
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
@@ -139,7 +140,9 @@ class Game{
                 this.fainted()
                 
             } else {
-
+                this.Squirtle.draw();
+                this.Butterfree.draw();
+                this.Beedrill.draw();
                 if (!this.Squirtle.mutePressed) {
                     this.musicObject.music.play();
                 } else {
@@ -209,10 +212,10 @@ class Game{
     begin(){
         // debugger
         this.menuDraw();
-        this.Squirtle.draw();
-        this.Butterfree.draw();
-        this.Beedrill.draw();
-        this.STATUS = 0;
+        // this.Squirtle.draw();
+        // this.Butterfree.draw();
+        // this.Beedrill.draw();
+        // this.STATUS = 0;
         this.life();
     }
 
