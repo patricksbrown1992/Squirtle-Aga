@@ -40,8 +40,8 @@ class Game{
         this.newButterfree = Butterfree;
         this.newSquirtleBulletShooter = SquirtleBulletShooter;
         this.newEnemyBulletShooter = EnemyBulletShooter;
-        this.score = Score
-        
+        this.score = new Score(this.canvas, this.ctx, this.Squirtle);
+        this.newScore = Score
 
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
@@ -81,6 +81,7 @@ class Game{
             this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
             this.SquirtleBulletShooter = new this.newSquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
             this.EnemyBulletShooter = new this.newEnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle, this.musicObject);
+            this.score = new this.newScore(this.canvas, this.ctx, this.Squirtle);
 
 
              document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
@@ -140,9 +141,9 @@ class Game{
                 this.fainted()
                 
             } else {
-                this.Squirtle.draw();
-                this.Butterfree.draw();
-                this.Beedrill.draw();
+                // this.Squirtle.draw();
+                // this.Butterfree.draw();
+                // this.Beedrill.draw();
                 if (!this.Squirtle.mutePressed) {
                     this.musicObject.music.play();
                 } else {
@@ -186,6 +187,7 @@ class Game{
                     this.Squirtle.draw();
                     this.Butterfree.draw();
                     this.Beedrill.draw();
+                    this.score.drawScore()
                     this.SquirtleBulletShooter.bullets.forEach((bullet) => {
                         bullet.draw();
                         this.SquirtleBulletShooter.collisionDetection();
