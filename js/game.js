@@ -75,7 +75,7 @@ class Game{
 
          }
 
-        if (e.keyCode === 72) {
+        if (e.keyCode === 72 && this.state == STATUS.GAMEOVER) {
             this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
             this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
             this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
@@ -93,7 +93,7 @@ class Game{
              this.menuDraw();
              
          }
-         if (e.keyCode === 82) {
+         if (e.keyCode === 82 && this.state == STATUS.WIN) {
              this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
              this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
              this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
