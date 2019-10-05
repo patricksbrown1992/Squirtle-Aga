@@ -33,7 +33,7 @@ class Squirtle{
     }
 
     handleMute(e){
-        // debugger
+  
         if(e.keyCode === 109) {
             this.mutePressed = !this.mutePressed;
         }

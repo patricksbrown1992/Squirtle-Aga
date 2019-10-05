@@ -25,7 +25,7 @@ class Butterfree{
 
 
     drawButterfrees() {
-        // debugger
+
         for (var c = 0; c < this.butterfreeColumnCount; c++) {
             for (var r = 0; r < this.butterfreeRowCount; r++) {
                 if (this.butterfrees[c][r].health > 0){

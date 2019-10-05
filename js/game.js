@@ -51,9 +51,9 @@ class Game{
     }
 
     keyHandler(e){
-        // debugger
+ 
         if (e.keyCode === 80){
-            // debugger
+
             if (this.state !== STATUS.PAUSED) {
  
                 this.drawPause()
@@ -168,9 +168,9 @@ class Game{
                         count += 1;
                     }
                 }) 
-                // debugger
+              
                 if( count == 0){
-                    // debugger
+           
                     if (!this.Squirtle.mutePressed) {
                         this.musicObject.music.pause();
                         this.musicObject.victory.play();
@@ -195,7 +195,7 @@ class Game{
                         this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet => bullet.y > 0);
                         this.SquirtleBulletShooter.bullets = this.SquirtleBulletShooter.bullets.filter(bullet =>  bullet.health > 0);
                     });
-                    // debugger
+            
                     setInterval(this.EnemyBulletShooter.shooterCheck(), 2000);
                     this.EnemyBulletShooter.bullets.forEach((bullet) => {
                         bullet.draw();
@@ -214,7 +214,7 @@ class Game{
 
 
     begin(){
-        // debugger
+
         this.menuDraw();
         // this.Squirtle.draw();
         // this.Butterfree.draw();
