@@ -2,7 +2,7 @@ import SquirtleBullet from './squirtleBullet';
 
 class SquirtleBulletShooter{
     constructor(ctx, canvas, Squirtle, Butterfrees, Beedrills, musicObject){
-        // this.Beedrills = Beedrills;
+
         this.Beedrills = Beedrills
         this.musicObject = musicObject;
         this.Butterfrees = Butterfrees;
@@ -16,13 +16,17 @@ class SquirtleBulletShooter{
 
     keyDownHandler(e){
         // debugger
-        if (e.keyCode === 90){
+        if (e.keyCode === 90 && this.bullets.length < 3) {
             if(this.Squirtle.mutePressed){
                 this.musicObject.watergun.pause();
             } else {
                 this.musicObject.watergun.play();
             }
-            setTimeout(() => this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle)), 500) 
+            // debugger
+          
+                // setTimeout(() => this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle)), 500)
+            this.bullets.push(new SquirtleBullet(this.canvas, this.ctx, this.Squirtle))
+            
         }
     }
 
