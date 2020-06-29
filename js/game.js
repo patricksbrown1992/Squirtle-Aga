@@ -98,8 +98,8 @@ class Game{
          }
         if (e.keyCode === 69 && this.state == STATUS.WIN || this.state == STATUS.WIN && e.keyCode == 67) {
             //  this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
-             this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
-             this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
+            this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
+            this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
              this.SquirtleBulletShooter = new this.newSquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
              this.EnemyBulletShooter = new this.newEnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle, this.musicObject);
 
@@ -186,7 +186,7 @@ class Game{
                     this.state = STATUS.WIN;
                     
                     this.Squirtle.level += 1;
-                    console.log('this is the level' + this.Squirtle.level)
+  
                     if(this.Squirtle.level > 3){
                         this.drawContinue();
 

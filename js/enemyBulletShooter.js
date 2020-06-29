@@ -12,6 +12,7 @@ class EnemyBulletShooter {
         this.bullets = [];
         this.shooterCheck = this.shooterCheck.bind(this);
         this.gameOver = false;
+        this.randNumFloor = 30;
 
     }
 
@@ -19,9 +20,9 @@ class EnemyBulletShooter {
         let i = Math.floor(Math.random() * this.Butterfree.butterfreeColumnCount);
         let j = Math.floor(Math.random() * 2);
         let k = this.Butterfree.butterfrees[i][j];
-        let num = Math.floor(Math.random() * 30);
+        let num = Math.floor(Math.random() * (this.randNumFloor / this.Squirtle.level));
 
-        if (k.health > 0 && num == 5){
+        if (k.health > 0 && num == 1){
 
             this.bullets.push(new EnemyBullet(this.canvas, this.ctx, k.x + 15, k.y + 17))
         }
@@ -29,7 +30,7 @@ class EnemyBulletShooter {
         let l = Math.floor(Math.random() * this.Beedrill.beedrillColumnCount);
         let m = Math.floor(Math.random() * 2);
         let n = this.Beedrill.beedrills[l][m];
-        if (n.health > 0 && num == 7) {
+        if (n.health > 0 && num == 2) {
   
             this.bullets.push(new EnemyBullet(this.canvas, this.ctx, n.x + 15, n.y))
         }
