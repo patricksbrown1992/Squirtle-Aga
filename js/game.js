@@ -44,6 +44,7 @@ class Game{
         this.newEnemyBulletShooter = EnemyBulletShooter;
         this.newScore = Score
         this.score = new Score(this.canvas, this.ctx, this.Squirtle);
+        this.drawContinue = this.drawContinue.bind(this);
         
         
 
@@ -95,7 +96,7 @@ class Game{
              this.menuDraw();
              
          }
-         if (e.keyCode === 69 && this.state == STATUS.WIN) {
+        if (e.keyCode === 69 && this.state == STATUS.WIN || this.state == STATUS.WIN && e.keyCode == 67) {
             //  this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
              this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
              this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
@@ -115,7 +116,8 @@ class Game{
             }
             this.life();
 
-         }
+        }
+        
 
     }
 
@@ -185,7 +187,13 @@ class Game{
                     
                     this.Squirtle.level += 1;
                     console.log('this is the level' + this.Squirtle.level)
-                    this.drawWin();
+                    if(this.Squirtle.level > 3){
+                        this.drawContinue();
+
+                    } else{
+                        this.drawWin();
+                    }
+                    
                     
                     
                     
@@ -283,6 +291,25 @@ class Game{
             this.ctx.textAlign = "center";
           
             this.ctx.fillText("Press E to Evolve", this.canvas.width / 2, 200);
+
+        }
+        img.src = './assets/deal-with-it.jpg';
+    }
+
+    drawContinue(){
+       
+        
+
+        let img = new Image();
+
+        img.onload = () => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+            this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.font = "40px Arial";
+            this.ctx.fillStyle = "white";
+            this.ctx.textAlign = "center";
+          
+            this.ctx.fillText("Press C to Continue", this.canvas.width / 2, 200);
 
         }
         img.src = './assets/deal-with-it.jpg';
