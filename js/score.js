@@ -6,6 +6,7 @@ class Score {
         this.score = 0;
         this.Squirtle = Squirtle;
         this.drawScore = this.drawScore.bind(this);
+        
     }
 //     resetGame(){
 //         this.score = 0;
@@ -22,6 +23,7 @@ class Score {
          this.ctx.textAlign = "top";
          this.ctx.fillText(`Lives: ${this.Squirtle.health}`, this.canvas.width - 100, 15);
          this.ctx.fillText(`Score: ${this.Squirtle.score}`, 100, 15);
+         this.ctx.fillText(`Level: ${this.Squirtle.level}`, 200, 15)
 
      }
 }
