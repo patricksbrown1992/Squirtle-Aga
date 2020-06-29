@@ -42,6 +42,7 @@ class Game{
         this.newEnemyBulletShooter = EnemyBulletShooter;
         this.newScore = Score
         this.score = new Score(this.canvas, this.ctx, this.Squirtle);
+        
 
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
@@ -94,7 +95,7 @@ class Game{
              
          }
          if (e.keyCode === 82 && this.state == STATUS.WIN) {
-             this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
+            //  this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
              this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
              this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
              this.SquirtleBulletShooter = new this.newSquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
@@ -106,8 +107,8 @@ class Game{
              document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
              document.addEventListener('keypress', this.Squirtle.handleMute, false)
              document.addEventListener("keyup", this.keyHandler, false);
-             this.state = STATUS.MENU
-             this.menuDraw();
+            this.state = STATUS.PLAYING;
+            this.life();
 
          }
 
@@ -176,7 +177,10 @@ class Game{
                         this.musicObject.victory.play();
                     }
                     this.state = STATUS.WIN;
-                    this.drawWin()
+         
+                    this.Squirtle.level += 1;
+                    console.log('this is the level' + this.Squirtle.level)
+                    this.drawWin();
                     
                     
                     
@@ -260,9 +264,9 @@ class Game{
 
     drawWin(){
         // const image = new Image()
-
+        
         // image.src = './assets/deal-with-it.jpg';
-
+        
 
         let img = new Image();
 
