@@ -255,15 +255,19 @@ class Game{
         // let press_m = new Image();
         let press_enter = new Image();
         let lives_photo = new Image();
+        let bullets_photo = new Image();
         press_enter .onload = () => {
             this.ctx.fillStyle = "steelblue";
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
             this.ctx.drawImage(press_enter, 0, 0, this.canvas.width, 100);
             this.ctx.drawImage(lives_photo, 0, 100, this.canvas.width, 150);
+            this.ctx.drawImage(bullets_photo, 0, 220, this.canvas.width, 225);
+
             this.ctx.fillStyle = "gold";
         }
         press_enter.src = './assets/press-enter.png';
         lives_photo.src = './assets/3-lives.png';
+        bullets_photo.src = './assets/3_bullets.png';
     }
     fainted(){
         
@@ -291,6 +295,7 @@ class Game{
             this.ctx.textAlign = "center";
           
             this.ctx.fillText("Press E to Evolve", this.canvas.width / 2, 200);
+            this.ctx.fillText("Enemies are harder", this.canvas.width / 2, 300);
 
         }
         img.src = './assets/deal-with-it.jpg';
@@ -310,6 +315,7 @@ class Game{
             this.ctx.textAlign = "center";
           
             this.ctx.fillText("Press C to Continue", this.canvas.width / 2, 200);
+            this.ctx.fillText("Enemies are harder", this.canvas.width / 2, 300);
 
         }
         img.src = './assets/deal-with-it.jpg';
