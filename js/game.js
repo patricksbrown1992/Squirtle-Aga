@@ -7,17 +7,19 @@ const STATUS = {
 }
 
 class Game{
-    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject, Score){
+    constructor(canvas, ctx, Squirtle, squirtlePhoto, Butterfree, butterfreePhoto, Beedrill, beedrillPhoto, SquirtleBulletShooter, EnemyBulletShooter, gameOverPhoto, dealWithItPhoto, musicObject, Score, warturtlePhoto, blastoisePhoto){
         this.canvas = canvas;
         this.ctx = ctx;
         this.squirtlePhoto = squirtlePhoto;
         this.musicObject = musicObject;
+        this.blastoisePhoto = blastoisePhoto;
         this.state = STATUS.MENU;
         this.gameOverPhoto = gameOverPhoto;
         this.butterfreePhoto = butterfreePhoto;
         this.beedrillPhoto = beedrillPhoto;
         this.dealWithItPhoto = dealWithItPhoto;
-        this.Squirtle = new Squirtle(this.canvas, this.ctx, this.squirtlePhoto);
+        this.warturtlePhoto = warturtlePhoto;
+        this.Squirtle = new Squirtle(this.canvas, this.ctx, this.squirtlePhoto, this.warturtlePhoto, this.blastoisePhoto);
         this.Butterfree = new Butterfree(this.canvas, this.ctx, this.butterfreePhoto);
         this.Beedrill = new Beedrill(this.canvas, this.ctx, this.beedrillPhoto);
         this.SquirtleBulletShooter = new SquirtleBulletShooter(this.ctx, this.canvas, this.Squirtle, this.Butterfree, this.Beedrill, this.musicObject);
@@ -43,13 +45,12 @@ class Game{
         this.newScore = Score
         this.score = new Score(this.canvas, this.ctx, this.Squirtle);
         
+        
 
         // document.addEventListener('keypress', this.Squirtle.handlePause, false)
     }
 
-    start(){
-
-    }
+  
 
     keyHandler(e){
  
@@ -94,7 +95,7 @@ class Game{
              this.menuDraw();
              
          }
-         if (e.keyCode === 82 && this.state == STATUS.WIN) {
+         if (e.keyCode === 69 && this.state == STATUS.WIN) {
             //  this.Squirtle = new this.newSquirtle(this.canvas, this.ctx, this.squirtlePhoto);
              this.Beedrill = new this.newBeedrill(this.canvas, this.ctx, this.beedrillPhoto);
              this.Butterfree = new this.newButterfree(this.canvas, this.ctx, this.butterfreePhoto);
@@ -102,12 +103,16 @@ class Game{
              this.EnemyBulletShooter = new this.newEnemyBulletShooter(this.ctx, this.canvas, this.Beedrill, this.Butterfree, this.Squirtle, this.musicObject);
 
 
-             document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
-             document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
+            //  document.addEventListener("keydown", this.Squirtle.keyDownHandler, false);
+            //  document.addEventListener("keyup", this.Squirtle.keyUpHandler, false);
              document.addEventListener("keydown", this.SquirtleBulletShooter.keyDownHandler, false);
-             document.addEventListener('keypress', this.Squirtle.handleMute, false)
+            //  document.addEventListener('keypress', this.Squirtle.handleMute, false)
              document.addEventListener("keyup", this.keyHandler, false);
             this.state = STATUS.PLAYING;
+            if (!this.Squirtle.mutePressed) {
+                this.musicObject.victory.pause();
+                this.musicObject.music.play();
+            }
             this.life();
 
          }
@@ -177,7 +182,7 @@ class Game{
                         this.musicObject.victory.play();
                     }
                     this.state = STATUS.WIN;
-         
+                    
                     this.Squirtle.level += 1;
                     console.log('this is the level' + this.Squirtle.level)
                     this.drawWin();
@@ -277,7 +282,7 @@ class Game{
             this.ctx.fillStyle = "white";
             this.ctx.textAlign = "center";
           
-            this.ctx.fillText("Press R to run it back", this.canvas.width / 2, 200);
+            this.ctx.fillText("Press E to Evolve", this.canvas.width / 2, 200);
 
         }
         img.src = './assets/deal-with-it.jpg';

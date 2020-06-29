@@ -1,8 +1,10 @@
 class Squirtle{
-    constructor(canvas, ctx, squirtlePhoto){
+    constructor(canvas, ctx, squirtlePhoto, warturtlePhoto, blastoisePhoto){
         this.squirtleWidth = 24;
         this.squirtlePhoto = squirtlePhoto;
         this.squirtleHeight = 31;
+        this.warturtlePhoto = warturtlePhoto;
+        this.blastoisePhoto = blastoisePhoto;
         this.canvas = canvas;
         this.squirtleX = (this.canvas.width - this.squirtleWidth) / 2;
         this.rightPressed = false;
@@ -64,8 +66,20 @@ class Squirtle{
     
 
     drawSquirtle() {
-        this.ctx.drawImage(this.squirtlePhoto, 10, 10, 37, 37, this.squirtleX, this.canvas.height - 50, 50, 50);
-        this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
+        // debugger
+        if(this.level == 1){
+            this.ctx.drawImage(this.squirtlePhoto, 10, 10, 37, 37, this.squirtleX, this.canvas.height - 50, 50, 50);
+            this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
+
+        } else if(this.level == 2){
+            this.ctx.drawImage(this.warturtlePhoto, 5, 5, 45, 45, this.squirtleX, this.canvas.height - 50, 50, 50);
+            this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
+        } else {
+            this.ctx.drawImage(this.blastoisePhoto, 5, 5, 50, 50, this.squirtleX, this.canvas.height - 50, 50, 50);
+            this.ctx.rect(this.squirtleX, this.canvas.height - this.squirtleHeight, this.squirtleHeight, this.squirtleWidth);
+
+        }
+        
     }
 
     draw() {
