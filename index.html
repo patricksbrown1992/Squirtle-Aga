@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./lib/bundle.js"></script>
     <title>Squirtle-Aga - Pokemon themed Galaga</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+      }
 
-        canvas {
-            background: #fff;
-            /* change to pokemon battle background */
-        
-            display: block;
-           
-            margin: 0 auto;
-        }
+      canvas {
+        background: #fff;
+        /* change to pokemon battle background */
+
+        display: block;
+
+        margin: 0 auto;
+      }
     </style>
-  
-</head>
+  </head>
 
-<body>
-    
+  <body>
     <div class="header">
-     
-        <img src="./assets/squirtle.png">
-        <img src="./assets/Squirtle-Aga.png">
-        <img src="./assets/beedrill.png">
-        <img src="./assets/butterfree.png">
-
- 
+      <img src="./assets/squirtle.png" />
+      <img src="./assets/Squirtle-Aga.png" />
+      <img src="./assets/beedrill.png" />
+      <img src="./assets/butterfree.png" />
     </div>
 
     <div class="squirtle-aga-body">
+      <div class="instructions-nav">
+        <h3><img src="./assets/press-arrows.png" /></h3>
+        <h3><img src="./assets/press-z.png" /></h3>
+        <h3><img src="./assets/avoid-fire.png" /></h3>
+      </div>
 
-        <div class="instructions-nav">
-            <h3> <img src="./assets/press-arrows.png"> </h3>
-            <h3> <img src="./assets/press-z.png"> </h3>
-            <h3> <img src="./assets/avoid-fire.png"> </h3>
-        
-        </div>
-    
-        <div class='canvas'>
-    
-            <canvas id="myCanvas" className='Canvas' width="520" height="540"></canvas>
-    
-            <script>
-                // need to realign these with bigger canvas
-                var canvas = document.getElementById("myCanvas");
-                var ctx = canvas.getContext("2d");
-        
-            </script>
-        </div>
-    
-        <div class="score-nav">
-            <h3><img src="./assets/press-m.png"> </h3>
-            <h3><img src="./assets/press-p.png"> </h3>
-            <h3>  <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank"><img class="linkedin-logo" src="./assets//LinkedIn_logo.png">  Patrick's LinkedIn</a></h3>
-            <h3>   <a href="https://github.com/patricksbrown1992/Squirtle-Aga" target="_blank"> <img class='github-logo'src="./assets/github-logo.png">  Patrick's Github</a></h3>
-            <h3><a href=" https://patricksbrown1992.github.io/portfolio/" target="_blank">Patrick's Portfolio</a></h3>
-            <h3><a href="./assets/Patrick Brown Resume.pdf" target="_blank">Resume</a></h3>
-           
-        </div>
+      <div class="canvas">
+        <canvas
+          id="myCanvas"
+          className="Canvas"
+          width="520"
+          height="540"
+        ></canvas>
 
+        <script>
+          // need to realign these with bigger canvas
+          var canvas = document.getElementById("myCanvas");
+          var ctx = canvas.getContext("2d");
+        </script>
+      </div>
+
+      <div class="score-nav">
+        <h3><img src="./assets/press-m.png" /></h3>
+        <h3><img src="./assets/press-p.png" /></h3>
+        <h3>
+          <a
+            href="https://www.linkedin.com/in/patricksbrown1992/"
+            target="_blank"
+            ><img class="linkedin-logo" src="./assets//LinkedIn_logo.png" />
+            Patrick's LinkedIn</a
+          >
+        </h3>
+        <h3>
+          <a
+            href="https://github.com/patricksbrown1992/Squirtle-Aga"
+            target="_blank"
+          >
+            <img class="github-logo" src="./assets/github-logo.png" /> Patrick's
+            Github</a
+          >
+        </h3>
+        <h3>
+          <a
+            href=" https://patricksbrown1992.github.io/portfolio/"
+            target="_blank"
+            >Patrick's Portfolio</a
+          >
+        </h3>
+        <h3>
+          <a href="./assets/Patrick Brown Resume.pdf" target="_blank">Resume</a>
+        </h3>
+      </div>
     </div>
-    
-</body>
-
+  </body>
 </html>
