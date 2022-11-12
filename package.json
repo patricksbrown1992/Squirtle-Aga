@@ -23,6 +23,6 @@
   "homepage": "https://github.com/patricksbrown1992/Squirtle-Aga#readme",
   "dependencies": {
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.12"
   }
 }
